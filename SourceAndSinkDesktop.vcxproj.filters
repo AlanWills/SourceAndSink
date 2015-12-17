@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{be3a87f3-616d-45e8-956b-37b10c023ef6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data">
+      <UniqueIdentifier>{a85b01d4-0e13-43bb-bb0a-5a64d0e80fc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Managers">
+      <UniqueIdentifier>{333021ed-4688-4f8d-85d9-8bb386a640f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Object Classes">
+      <UniqueIdentifier>{d1f08481-8f99-41de-9c23-039428c0f08b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Screens">
+      <UniqueIdentifier>{8f266510-0a04-43b1-a3e7-271b68088c52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Extra Components">
+      <UniqueIdentifier>{01bce4e8-dedc-408c-970b-3fe8c7b0b3fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Extra Components\Input">
+      <UniqueIdentifier>{68de1892-f784-45a6-9bc2-ada096f0b60e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics">
+      <UniqueIdentifier>{0bccdcce-6980-486c-9d0f-c059367c84ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics\Colliders">
+      <UniqueIdentifier>{a0333ae0-e969-4fd7-9329-fb1495fb6693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scripts">
+      <UniqueIdentifier>{d091547c-c2d4-4c53-9988-ae6ff54a950c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tilemap">
+      <UniqueIdentifier>{ffd4b322-0d25-476b-98c5-863dcf96937e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data">
+      <UniqueIdentifier>{038b9a32-82e1-4085-ad25-a506dc44dc52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers">
+      <UniqueIdentifier>{09518bb7-c36c-46c6-ba32-4f82d1e8d869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Extra Components">
+      <UniqueIdentifier>{3ac1c96b-c2bc-40ff-91f2-f4f81f693eec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Extra Components\Input">
+      <UniqueIdentifier>{17e4aeca-036a-4149-99cc-29db53bcc03f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tilemap">
+      <UniqueIdentifier>{e25c805b-8b06-4179-bbf8-1f3bd0412362}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scripts">
+      <UniqueIdentifier>{31782015-d326-4f52-82af-953edd9bbd4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{5a025e8a-d110-475a-a588-c6789c39811d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Screens">
+      <UniqueIdentifier>{1aeba3e0-810a-4034-891b-bdc5bfbca375}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object Classes">
+      <UniqueIdentifier>{34607d25-f4a4-45af-9992-b8dfed8acb97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{8dd06aac-ce5c-49d2-b6d6-b77323bb5431}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics\Colliders">
+      <UniqueIdentifier>{88fbacd2-e935-4390-b07c-940986a5c7c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{f3c0baa9-c337-4aeb-827c-cdbf98da8ea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{a5e2d032-3c2f-4821-bd14-c8c494c29a26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Sprites">
+      <UniqueIdentifier>{c36bf9f3-a62f-47ea-8b3b-bc943662862a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Sprites\Pipes">
+      <UniqueIdentifier>{4068d7da-7713-48f5-9d8f-b37ac67a75d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Data">
+      <UniqueIdentifier>{50b12d8c-e1f4-4325-b8ca-097fd232ed7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Sprites\UI">
+      <UniqueIdentifier>{94e7dec6-48e7-481f-8726-dc398e55a696}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Sprites\Fonts">
+      <UniqueIdentifier>{db206d70-a111-44e6-8554-446ed834efca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Sprites\Backgrounds">
+      <UniqueIdentifier>{a2e53ecb-76e3-4b7f-9408-3e7b30a5a792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Data\Screens">
+      <UniqueIdentifier>{9048bfbd-da51-4bd4-a349-eda538285010}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Sprites\Tiles">
+      <UniqueIdentifier>{c8b0ecc6-81f4-44fc-aa86-b2d0a4bbe15c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Data\Levels">
+      <UniqueIdentifier>{17d5a94f-652d-4eea-a486-c15dcb49649e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Data\Pipes">
+      <UniqueIdentifier>{40ef4c9c-7427-4fdb-bf8e-5f6cdb83abb7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StepTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseData.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Bar.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>Header Files\Object Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObjectManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseScreenData.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Extra Components</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider.h">
+      <Filter>Header Files\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Header Files\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMouse.h">
+      <Filter>Header Files\Extra Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\Object Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericUtils.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardInput.h">
+      <Filter>Header Files\Extra Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Label.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtils.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleCollider.h">
+      <Filter>Header Files\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Script.h">
+      <Filter>Header Files\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Header Files\Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="Tilemap.h">
+      <Filter>Header Files\Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="UIObject.h">
+      <Filter>Header Files\Object Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="TouchInput.h">
+      <Filter>Header Files\Extra Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="TilemapData.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipe.h">
+      <Filter>Header Files\Object Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="PipeData.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayScreenData.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bar.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseData.cpp">
+      <Filter>Source Files\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>Source Files\Object Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseScreenData.cpp">
+      <Filter>Source Files\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Extra Components</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollider.cpp">
+      <Filter>Source Files\Physics\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files\Physics\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMouse.cpp">
+      <Filter>Source Files\Extra Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardInput.cpp">
+      <Filter>Source Files\Extra Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Object Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericUtils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Source Files\Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilemap.cpp">
+      <Filter>Source Files\Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="Script.cpp">
+      <Filter>Source Files\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBody.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleCollider.cpp">
+      <Filter>Source Files\Physics\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIObject.cpp">
+      <Filter>Source Files\Object Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture2D.cpp">
+      <Filter>Source Files\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="TilemapData.cpp">
+      <Filter>Source Files\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="TouchInput.cpp">
+      <Filter>Source Files\Extra Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Pipe.cpp">
+      <Filter>Source Files\Object Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="PipeData.cpp">
+      <Filter>Source Files\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayScreenData.cpp">
+      <Filter>Source Files\Data</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="directx.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Button.png">
+      <Filter>Resource Files\Sprites\UI</Filter>
+    </Image>
+    <Image Include="cursor_blue.png">
+      <Filter>Resource Files\Sprites\UI</Filter>
+    </Image>
+    <Image Include="EmptyBackground.png">
+      <Filter>Resource Files\Sprites\Backgrounds</Filter>
+    </Image>
+    <Image Include="Corner_Pipe_Empty_Game.png">
+      <Filter>Resource Files\Sprites\Pipes</Filter>
+    </Image>
+    <Image Include="Corner_Pipe_Full_Game.png">
+      <Filter>Resource Files\Sprites\Pipes</Filter>
+    </Image>
+    <Image Include="Quad_Pipe_Empty_Game.png">
+      <Filter>Resource Files\Sprites\Pipes</Filter>
+    </Image>
+    <Image Include="Quad_Pipe_Full_Game.png">
+      <Filter>Resource Files\Sprites\Pipes</Filter>
+    </Image>
+    <Image Include="Straight_Pipe_Empty_Game.png">
+      <Filter>Resource Files\Sprites\Pipes</Filter>
+    </Image>
+    <Image Include="Straight_Pipe_Full_Game.png">
+      <Filter>Resource Files\Sprites\Pipes</Filter>
+    </Image>
+    <Image Include="T_Pipe_Empty_Game.png">
+      <Filter>Resource Files\Sprites\Pipes</Filter>
+    </Image>
+    <Image Include="T_Pipe_Full_Game.png">
+      <Filter>Resource Files\Sprites\Pipes</Filter>
+    </Image>
+    <Image Include="BackTile_Game.png">
+      <Filter>Resource Files\Sprites\Tiles</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="settings.manifest">
+      <Filter>Resource Files</Filter>
+    </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Font.spritefont">
+      <Filter>Resource Files\Sprites\Fonts</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="MainMenuScreen.xml">
+      <Filter>Resource Files\Data\Screens</Filter>
+    </Xml>
+    <Xml Include="Level1.xml">
+      <Filter>Resource Files\Data\Levels</Filter>
+    </Xml>
+    <Xml Include="StraightPipe.xml">
+      <Filter>Resource Files\Data\Pipes</Filter>
+    </Xml>
+    <Xml Include="Level1Screen.xml">
+      <Filter>Resource Files\Data\Screens</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <DisplayName></DisplayName>
+  <BackgroundTextureAsset>EmptyBackground.png</BackgroundTextureAsset>
+  <TilemapAsset>Level1.xml</TilemapAsset>
+  <Pipes>
+    <StraightPipe.xml>1</StraightPipe.xml>
+  </Pipes>
+</Root>
