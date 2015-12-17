@@ -97,12 +97,26 @@ void GameplayScreen::HandleInput(DX::StepTimer const& timer)
 
 		m_backgroundTilemap->HandleInput(timer, gameMouse.GetInGamePosition());
 
-    if (gameMouse.IsClicked(GameMouse::MouseButton::kLeftButton))
+    // Check that we have clicked the mouse and clicked on the tilemap
+    if (gameMouse.IsClicked(GameMouse::MouseButton::kLeftButton) && m_backgroundTilemap->IsClicked(gameMouse.GetInGamePosition()))
     {
-      if (m_backgroundTilemap->IsClicked(gameMouse.GetInGamePosition()))
-      {
-        AddGameObject(new Pipe(m_pipesDataAssets.front(), m_backgroundTilemap->GetClickedTile(gameMouse.GetInGamePosition())), true, true);
-      }
+      AddPipe(gameMouse.GetInGamePosition());
     }
 	}
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+void GameplayScreen::AddPipe(const Vector2& location)
+{
+  // Get the tile we have clicked on
+  Tile* clickedTile = m_backgroundTilemap->GetClickedTile(location);
+
+  // Check that it is not already occupied
+  if (!clickedTile->IsOccupied())
+  {
+    // If not, parent a pipe under it and set occupied to true for the tile
+    AddGameObject(new Pipe(m_pipesDataAssets.front(), clickedTile), true, true);
+    clickedTile->SetOccupied(true);
+  }
 }

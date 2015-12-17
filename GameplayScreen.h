@@ -20,6 +20,8 @@ public:
 	void HandleInput(DX::StepTimer const& timer) override;
 
 private:
+  void AddPipe(const Vector2& location);
+
 	std::unique_ptr<Tilemap> m_backgroundTilemap;
   std::unique_ptr<GameplayScreenData> m_gameplayScreenData;
 
