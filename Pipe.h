@@ -48,6 +48,7 @@ public:
   ~Pipe();
 
   void LoadContent(ID3D11Device* device) override;
+  void HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition) override;
 
 private:
   PipeInfo m_pipeInfo;

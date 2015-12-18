@@ -30,3 +30,16 @@ void Pipe::LoadContent(ID3D11Device* device)
 
   m_pipeData->SetUpPipeInfo(m_pipeInfo);
 }
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+void Pipe::HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition)
+{
+  GameObject::HandleInput(timer, mousePosition);
+
+  if (AcceptsInput() && IsClicked())
+  {
+    // If the pipe is clicked on, we need to rotate it
+    SetLocalRotation(GetLocalRotation() + XM_PIDIV2);
+  }
+}

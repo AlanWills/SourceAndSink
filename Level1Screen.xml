@@ -5,5 +5,8 @@
   <TilemapAsset>Level1.xml</TilemapAsset>
   <Pipes>
     <StraightPipe.xml>1</StraightPipe.xml>
+    <CornerPipe.xml>1</CornerPipe.xml>
+    <QuadPipe.xml>1</QuadPipe.xml>
+    <TPipe.xml>1</TPipe.xml>
   </Pipes>
 </Root>

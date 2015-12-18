@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <EmptyTextureAsset>Quad_Pipe_Empty_Game.png</EmptyTextureAsset>
+  <FullTextureAsset>Quad_Pipe_Full_Game.png</FullTextureAsset>
+  <PipeInfo top="true" right="true" bottom="true" left="true"></PipeInfo>
+</Root>

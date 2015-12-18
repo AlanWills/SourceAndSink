@@ -89,7 +89,7 @@ void GameplayScreen::DrawInGameObjects(SpriteBatch* spriteBatch, SpriteFont* spr
 //-----------------------------------------------------------------------------------------------------------------------------------
 void GameplayScreen::HandleInput(DX::StepTimer const& timer)
 {
-	BaseScreen::Update(timer);
+	BaseScreen::HandleInput(timer);
 
 	if (AcceptsInput())
 	{

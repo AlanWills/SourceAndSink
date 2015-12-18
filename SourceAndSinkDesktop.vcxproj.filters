@@ -408,5 +408,14 @@
     <Xml Include="Level1Screen.xml">
       <Filter>Resource Files\Data\Screens</Filter>
     </Xml>
+    <Xml Include="QuadPipe.xml">
+      <Filter>Resource Files\Data\Pipes</Filter>
+    </Xml>
+    <Xml Include="CornerPipe.xml">
+      <Filter>Resource Files\Data\Pipes</Filter>
+    </Xml>
+    <Xml Include="TPipe.xml">
+      <Filter>Resource Files\Data\Pipes</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

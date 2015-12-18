@@ -142,6 +142,9 @@ void BaseObject::Draw(SpriteBatch* spriteBatch, SpriteFont* spriteFont)
 //-----------------------------------------------------------------------------------------------------------------------------------
 void BaseObject::HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition)
 {
+  // Reset the clicked status of this object - this can now only be set to true if we click OVER the object again
+  m_clicked = false;
+
 	if (!m_acceptsInput)
 	{
 		return;
@@ -162,10 +165,16 @@ void BaseObject::HandleInput(DX::StepTimer const& timer, const Vector2& mousePos
 	}
 
 	// We have clicked the mouse left button so need to check the selection status
-	if (m_mouseOver && !m_selected)
+	if (m_mouseOver)
 	{
-		// Mouse is over the object and not already selected
-		m_selected = true;
+    // Object has been clicked on
+    m_clicked = true;
+
+    if (!m_selected)
+    {
+      // Mouse is over the object and not already selected so we select it
+      m_selected = true;
+    }
 	}
 	else
 	{

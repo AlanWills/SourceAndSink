@@ -93,7 +93,7 @@ public:
 	void SetLocalPosition(const Vector2& localPosition) { m_localPosition = localPosition; }
 
 	float GetLocalRotation() const { return m_localRotation; }
-	void SetLocalRotation(const float localRotation) { m_localRotation = localRotation; }
+	void SetLocalRotation(const float localRotation) { m_localRotation = XMScalarModAngle(localRotation); }
 
 	const std::wstring& GetTag() const { return m_tag; }
 	void SetTag(const std::wstring& tag) { m_tag = tag; }
@@ -103,6 +103,9 @@ public:
 
 	const bool IsSelected() const { return m_selected; }
 	void SetSelected(const bool selected) { m_selected = selected; }
+
+  const bool IsClicked() const { return m_clicked; }
+  void SetClicked(const bool clicked) { m_clicked = clicked; }
 
 	void SetColour(const Color& colour) { m_colour = colour; }
 
@@ -154,8 +157,10 @@ private:
 
 	// Used for handling input - variables to represent whether the mouse is over the object
 	// And whether it is selected
+  // And whether it has just been clicked - will only last one loop from when it was selected
 	bool m_mouseOver;
 	bool m_selected;
+  bool m_clicked;
 
 	// Collider
 	std::unique_ptr<Collider> m_collider;

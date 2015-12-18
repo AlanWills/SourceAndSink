@@ -269,10 +269,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="CornerPipe.xml" />
     <Xml Include="Level1Screen.xml" />
     <Xml Include="Level1.xml" />
     <Xml Include="MainMenuScreen.xml" />
+    <Xml Include="QuadPipe.xml" />
     <Xml Include="StraightPipe.xml" />
+    <Xml Include="TPipe.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
