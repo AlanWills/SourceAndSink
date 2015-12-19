@@ -22,7 +22,7 @@ void Tilemap::LoadContent()
 	// Load the tile data here and create the tiles
 	m_tilemapData->LoadData();
 	std::list<Tile*> tiles;
-	m_tilemapData->GetTiles(tiles);
+	m_tilemapData->GetTiles(tiles, m_tilemap);
 
 	// Push back the tiles to the BaseObjectManager using the elements in 'tiles'
 	for (Tile* tile : tiles)

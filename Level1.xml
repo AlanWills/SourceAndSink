@@ -2,7 +2,7 @@
 <Root>
   <DisplayName>Level 1</DisplayName>
   <NumberOfTiles>1</NumberOfTiles>
-  <Tiles x="832" y ="412">
+  <Tiles x="832" y="412">
     <Row tiles ="5"></Row>
     <Row tiles ="5"></Row>
     <Row tiles ="5"></Row>

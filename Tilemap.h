@@ -25,11 +25,15 @@ public:
 private:
 	/// \brief Typedefs
 	typedef std::unique_ptr<BaseObjectManager<Tile>> Tiles;
+  typedef std::vector<std::vector<Tile*>> TilemapInfo;
 
-	// Holds the tiles in the tilemap
-	Tiles							m_tiles;
+	// Container for the tiles in the tilemap
+	Tiles		m_tiles;
 
 	// Will be used to obtain the information to create the Tiles
-	std::unique_ptr<TilemapData>	m_tilemapData;
-};
+  std::unique_ptr<TilemapData>	m_tilemapData;
 
+  /// \brief A data structure designed to be able to find neighbours of tiles and plot out the map in a data structure
+  /// [row][column]
+  TilemapInfo m_tilemap;
+};

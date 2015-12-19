@@ -3,10 +3,17 @@
 #include "GameObject.h"
 
 class PipeData;
+class Tile;
 
 class Pipe : public GameObject
 {
 public:
+  enum PipeStatus
+  {
+    kEmpty,
+    kFull,
+  };
+
   // Holds information on which way the pipe lets water flow through
   struct PipeInfo
   {
@@ -44,14 +51,20 @@ public:
     bool m_pipeInfoArray[4];
   };
 
-  Pipe(const char* dataAsset, BaseObject* parent);
+  Pipe(const char* dataAsset, Tile* parentTile);
   ~Pipe();
 
   void LoadContent(ID3D11Device* device) override;
+  void Update(DX::StepTimer const& timer) override;
   void HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition) override;
+
+  const PipeStatus GetPipeStatus() const { return m_pipeStatus; }
 
 private:
   PipeInfo m_pipeInfo;
 
   std::unique_ptr<PipeData> m_pipeData;
+
+  /// \brief Current status of the pipe
+  PipeStatus m_pipeStatus;
 };

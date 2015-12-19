@@ -4,9 +4,11 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-Tile::Tile(const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent) :
+Tile::Tile(const Vector2& localPosition, const std::pair<int, int> tilemapCoords, const char* dataAsset, LoadType loadType, BaseObject* parent) :
 	GameObject(localPosition, dataAsset, loadType, parent),
-  m_occupied(false)
+  m_storedObject(nullptr),
+  m_tilemapCoords(tilemapCoords),
+  m_neighbours(4)
 {
 }
 

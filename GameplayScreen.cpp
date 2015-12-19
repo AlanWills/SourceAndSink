@@ -116,7 +116,8 @@ void GameplayScreen::AddPipe(const Vector2& location)
   if (!clickedTile->IsOccupied())
   {
     // If not, parent a pipe under it and set occupied to true for the tile
-    AddGameObject(new Pipe(m_pipesDataAssets.front(), clickedTile), true, true);
-    clickedTile->SetOccupied(true);
+    Pipe* addedPipe = new Pipe(m_pipesDataAssets.front(), clickedTile);
+    AddGameObject(addedPipe, true, true);
+    clickedTile->SetStoredObject(addedPipe);
   }
 }

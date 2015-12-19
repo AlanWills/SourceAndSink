@@ -1,13 +1,16 @@
 #include "pch.h"
 
 #include "Pipe.h"
+#include "Tile.h"
+
 #include "PipeData.h"
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-Pipe::Pipe(const char* dataAsset, BaseObject* parent) :
+Pipe::Pipe(const char* dataAsset, Tile* parent) :
   GameObject(dataAsset, LoadType::kData, parent),
-  m_pipeData(new PipeData(dataAsset))
+  m_pipeData(new PipeData(dataAsset)),
+  m_pipeStatus(kEmpty)
 {
 }
 
@@ -29,6 +32,26 @@ void Pipe::LoadContent(ID3D11Device* device)
   LoadTexture(device, m_pipeData->GetEmptyTextureAsset());
 
   m_pipeData->SetUpPipeInfo(m_pipeInfo);
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+void Pipe::Update(DX::StepTimer const& timer)
+{
+  GameObject::Update(timer);
+
+  if (IsActive())
+  {
+    // Add validation code for empty/full here
+    const Tile* tile = GetParentAs<Tile>();
+    assert(tile);
+
+    // Iterate through the neighbours and work out if this pipe is connect to a pipe with water in it
+    for (int neighbour = Tile::kUp; neighbour < Tile::kNumNeighbours; neighbour++)
+    {
+
+    }
+  }
 }
 
 
