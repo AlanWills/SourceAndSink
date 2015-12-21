@@ -4,6 +4,7 @@
 
 #include "HUD.h"
 #include "ClickableImage.h"
+#include "Label.h"
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
@@ -45,7 +46,7 @@ void HUD::AddInitialUI()
     ClickableImage* image = new ClickableImage(Vector2(m_gameplayScreen->GetScreenDimensions().x * 0.5f - 200, (float)-150 + pipeIndex * 100), pipeData->GetEmptyTextureAsset(), BaseObject::LoadType::kTexture, this);
     image->SetClickFunction([this, image]()
     {
-      m_selectedPipeImage = new UIObject(Vector2(200, 200), image->GetDataAsset(), LoadType::kTexture, this);
+      m_selectedPipeImage = new UIObject(Vector2(0, m_gameplayScreen->GetScreenDimensions().y * 0.5f - 100), image->GetDataAsset(), LoadType::kTexture, this);
       m_selectedPipeImage->LoadContent(m_gameplayScreen->GetDevice());
       m_selectedPipeImage->Initialize();
       m_selectedPipeImage->SetName(image->GetName());
@@ -55,7 +56,7 @@ void HUD::AddInitialUI()
     AddUIObject(image);
 
     // Initialize the starting selected pipe
-    m_selectedPipeImage = new UIObject(Vector2(200, 200), pipeData->GetEmptyTextureAsset(), LoadType::kTexture, this);
+    m_selectedPipeImage = new UIObject(Vector2(0, m_gameplayScreen->GetScreenDimensions().y * 0.5f - 100), pipeData->GetEmptyTextureAsset(), LoadType::kTexture, this);
     m_selectedPipeImage->SetName(pipeData->GetDataAsset());
 
     pipeIndex++;
@@ -63,6 +64,8 @@ void HUD::AddInitialUI()
 
   m_selectedPipeImage->LoadContent(m_gameplayScreen->GetDevice());
   m_selectedPipeImage->Initialize();
+
+  AddUIObject(new Label(Vector2(0, -m_selectedPipeImage->GetSize().y), L"Current Selected Pipe:", m_selectedPipeImage));
 }
 
 
