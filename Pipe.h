@@ -80,10 +80,10 @@ public:
 
   void LoadContent(ID3D11Device* device) override;
   void Update(DX::StepTimer const& timer) override;
-  void HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition) override;
 
   const PipeStatus GetPipeStatus() const { return m_pipeStatus; }
-  const PipeInfo GetPipeInfo() const { return m_pipeInfo; }
+  const PipeInfo ConstGetPipeInfo() const { return m_pipeInfo; }
+  PipeInfo GetPipeInfo() { return m_pipeInfo; }
 
 protected:
   Texture2D* GetTexture() const override;
@@ -93,9 +93,6 @@ protected:
 private:
   /// \brief Update pipe status using neighbours
   virtual void UpdatePipeStatus() = 0;
-
-  /// \brief Changes pipe's rotation but also the info array
-  void Rotate();
 
   PipeInfo m_pipeInfo;
 

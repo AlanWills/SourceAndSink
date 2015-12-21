@@ -59,36 +59,6 @@ void Pipe::Update(DX::StepTimer const& timer)
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-void Pipe::HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition)
-{
-  GameObject::HandleInput(timer, mousePosition);
-
-  if (AcceptsInput())
-  {
-    if (IsClicked(MouseButton::kLeftButton))
-    {
-      // If the pipe is left clicked on, we need to rotate it
-      Rotate();
-    }
-
-    if (IsClicked(MouseButton::kRightButton))
-    {
-      // If the pipe is right clicked on, we are going to remove it from the tilemap so we should kill it and it will get cleaned up automatically
-      Die();
-    }
-  }
-}
-
-
-//-----------------------------------------------------------------------------------------------------------------------------------
-void Pipe::Rotate()
-{
-  SetLocalRotation(GetLocalRotation() + XM_PIDIV2);
-  m_pipeInfo.Rotate90Clockwise();
-}
-
-
-//-----------------------------------------------------------------------------------------------------------------------------------
 Texture2D* Pipe::GetTexture() const
 {
   // Return the full or empty texture based on the status of the pipe

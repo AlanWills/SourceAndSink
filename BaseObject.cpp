@@ -161,10 +161,10 @@ void BaseObject::HandleInput(DX::StepTimer const& timer, const Vector2& mousePos
     // Work out whether the mouse is over the object using the collider and mouse in game position
     m_mouseOver = m_collider->CheckCollisionWith(mousePosition);
 
-    // If mouse left button isn't clicked we do not need to change the selection state
+    // If mouse button isn't clicked we do not need to change the selection state and can continue
     if (!ScreenManager::GetGameMouse().IsClicked(static_cast<MouseButton>(mouseButton)))
     {
-      return;
+      continue;
     }
 
     // We have clicked the mouse left button so need to check the selection status
