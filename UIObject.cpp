@@ -22,7 +22,8 @@ UIObject::UIObject(const Vector2& localPosition, const char* dataAsset, LoadType
 UIObject::UIObject(const Vector2& size, const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent, float lifeTime) :
 	BaseObject(size, localPosition, dataAsset, loadType, parent),
 	m_lifeTime(lifeTime),
-	m_currentLifeTime(0)
+	m_currentLifeTime(0),
+  m_storedObject(nullptr)
 {
 
 }

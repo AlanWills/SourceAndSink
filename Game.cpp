@@ -37,7 +37,7 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     
-	m_screenManager.reset(new ScreenManager(m_d3dDevice.Get(), m_d3dContext.Get(), m_outputWidth, m_outputHeight));
+	m_screenManager.reset(new ScreenManager(m_d3dDevice.Get(), m_d3dContext.Get(), (float)m_outputWidth, (float)m_outputHeight));
 	m_screenManager->LoadContent();
 	m_screenManager->Initialize();
 

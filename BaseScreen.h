@@ -66,14 +66,16 @@ public:
 	void AddScreenUIObject(UIObject* screenUIObject, bool load = false, bool initialize = false);
 	void RemoveScreenUIObject(UIObject* screenUIObject);
 
+  ID3D11Device* GetDevice() const { return m_device.Get(); }
+
+  const Vector2& GetScreenDimensions() const;
+  const Vector2& GetScreenCentre() const;
+
 protected:
 	void Transition(BaseScreen* transitionTo);
 
 	/// \brief Get a pointer to the ScreenManager
 	ScreenManager* GetScreenManager() const { return m_screenManager; }
-	Microsoft::WRL::ComPtr<ID3D11Device> GetDevice() const { return m_device; }
-
-	const Vector2& GetScreenCentre() const;
 
 	const bool IsActive() { return m_active; }
 	const bool IsVisible() { return m_visible; }

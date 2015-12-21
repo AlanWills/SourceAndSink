@@ -4,12 +4,16 @@
 
 #include "ScreenManager.h"
 
+#include "SourcePipe.h"
+#include "NormalPipe.h"
+
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 GameplayScreen::GameplayScreen(ScreenManager* screenManager, const char* dataAsset) :
   BaseScreen(screenManager, dataAsset),
   m_gameplayScreenData(new GameplayScreenData(dataAsset)),
-  m_backgroundTilemap(nullptr)
+  m_backgroundTilemap(nullptr),
+  m_hud(nullptr)
 {
 }
 
@@ -34,22 +38,8 @@ void GameplayScreen::LoadContent()
   std::unordered_map<const char*, int> pipeData;
   m_gameplayScreenData->GetAvailablePipesForLevel(pipeData);
 
-  // Used for positioning the UI for the pipes on the screen
-  int pipeIndex = 0;
-  for (std::pair<const char*, int> pair : pipeData)
-  {
-    // Store the string for this pipe
-    std::unique_ptr<PipeData> pipeData(new PipeData(pair.first));
-    pipeData->LoadData();
-
-    for (int i = 0; i < pair.second; ++i)
-    {
-      AddScreenUIObject(new UIObject(Vector2(GetScreenCentre().x * 2 - 200 + 200 * (float)i, (float)300 + pipeIndex * 100), pipeData->GetEmptyTextureAsset()), true);
-    }
-
-    m_pipesDataAssets.push_back(pair.first);
-    pipeIndex++;
-  }
+  m_hud = new HUD(this);
+  AddScreenUIObject(m_hud, true, false);
 }
 
 
@@ -59,6 +49,8 @@ void GameplayScreen::Initialize()
 	BaseScreen::Initialize();
 
 	m_backgroundTilemap->Initialize();
+
+  AddPipe<SourcePipe>(GetScreenCentre(), m_hud->GetSelectedPipeAsset());
 }
 
 
@@ -100,24 +92,7 @@ void GameplayScreen::HandleInput(DX::StepTimer const& timer)
     // Check that we have clicked the mouse and clicked on the tilemap
     if (gameMouse.IsClicked(GameMouse::MouseButton::kLeftButton) && m_backgroundTilemap->IsClicked(gameMouse.GetInGamePosition()))
     {
-      AddPipe(gameMouse.GetInGamePosition());
+      AddPipe<NormalPipe>(gameMouse.GetInGamePosition(), m_hud->GetSelectedPipeAsset());
     }
 	}
-}
-
-
-//-----------------------------------------------------------------------------------------------------------------------------------
-void GameplayScreen::AddPipe(const Vector2& location)
-{
-  // Get the tile we have clicked on
-  Tile* clickedTile = m_backgroundTilemap->GetClickedTile(location);
-
-  // Check that it is not already occupied
-  if (!clickedTile->IsOccupied())
-  {
-    // If not, parent a pipe under it and set occupied to true for the tile
-    Pipe* addedPipe = new Pipe(m_pipesDataAssets.front(), clickedTile);
-    AddGameObject(addedPipe, true, true);
-    clickedTile->SetStoredObject(addedPipe);
-  }
 }

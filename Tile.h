@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Pipe.h"
 
 class Tile : public GameObject
 {
@@ -17,13 +18,13 @@ public:
 	Tile(const Vector2& localPosition, std::pair<int, int> tilemapCoords, const char* dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* baseObject = nullptr);
 	~Tile();
 
-  const bool IsOccupied() const { return m_storedObject == nullptr; }
+  const bool IsOccupied() const { return m_storedObject != nullptr; }
 
   void SetStoredObject(const BaseObject* storedObject) { m_storedObject = storedObject; }
   const BaseObject* GetStoredObject() const { return m_storedObject; }
 
   template <typename T>
-  const T* GetStoredObjectAs() const { return dynamic_cast<T*>(m_storedObject); }
+  const T* GetStoredObjectAs() const { return dynamic_cast<const T*>(m_storedObject); }
 
   void SetNeighbour(Tile* tile, const Neighbours neighbour) { m_neighbours[neighbour] = tile; }
   const Tile* GetNeighbour(const Neighbours neighbour) const { return m_neighbours[neighbour]; }

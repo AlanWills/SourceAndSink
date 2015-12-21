@@ -12,6 +12,6 @@ public:
   ~GameplayScreenData();
 
   const char* GetTilemapAsset() const;
-  void GetAvailablePipesForLevel(std::unordered_map<const char*, int>& pipeDataAssets);
+  void GetAvailablePipesForLevel(std::unordered_map<const char*, int>& pipeDataAssets) const;
 };
 

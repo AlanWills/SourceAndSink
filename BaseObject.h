@@ -48,7 +48,7 @@ public:
 
 	/// \brief Returns a pointer to the parent of this object as an inputted type
 	template <typename T>
-	T* GetParentAs() { return dynamic_cast<T*> m_parent; }
+	T* GetParentAs() { return dynamic_cast<T*>(m_parent); }
 
 	/// \brief State Utility Functions
 	bool IsActive() { return m_active; }
@@ -95,8 +95,8 @@ public:
 	float GetLocalRotation() const { return m_localRotation; }
 	void SetLocalRotation(const float localRotation) { m_localRotation = XMScalarModAngle(localRotation); }
 
-	const std::wstring& GetTag() const { return m_tag; }
-	void SetTag(const std::wstring& tag) { m_tag = tag; }
+	const std::wstring& GetName() const { return m_name; }
+	void SetName(const std::wstring& name) { m_name = name; }
 
 	const Vector2& GetSize() const { return m_size; }
 	void SetSize(const Vector2& size) { m_size = size; }
@@ -114,11 +114,12 @@ public:
 
 	Collider* GetCollider() const { return m_collider.get(); }
 
+  const char* GetDataAsset() const { return m_dataAsset; }
+
 protected:
-	const char* GetDataAsset() const { return m_dataAsset; }
 
 	/// \brief Gets the texture handler - cannot be const because draw is non-const (for now)
-	Texture2D* GetTextureHandler() const { return m_textureHandler.get(); }
+	virtual Texture2D* GetTexture() const { return m_textureHandler.get(); }
 
 	const bool IsMouseOver() const { return m_mouseOver; }
 	void SetMouseOver(const bool mouseOver) { m_mouseOver = mouseOver; }
@@ -133,7 +134,7 @@ private:
 	const char* m_dataAsset;
 
 	// A string to identify the object
-	std::wstring m_tag;
+	std::wstring m_name;
 
 	// Local position from parent
 	Vector2 m_localPosition;

@@ -50,13 +50,13 @@ void GameMouse::Draw(SpriteBatch* spriteBatch, SpriteFont* spriteFont)
 	if (IsVisible())
 	{
 		spriteBatch->Draw(
-			GetTextureHandler()->GetTexture(), 
+			GetTexture()->GetTexture(), 
 			GetWorldPosition(), 
 			nullptr, 
 			GetColour() * GetOpacity(),
 			GetWorldRotation(), 
 			Vector2::Zero, 
-			XMVectorDivide(GetSize(), GetTextureHandler()->GetDimensions()));
+			XMVectorDivide(GetSize(), GetTexture()->GetDimensions()));
 	}
 }
 

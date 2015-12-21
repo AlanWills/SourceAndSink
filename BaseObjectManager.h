@@ -38,7 +38,7 @@ public:
 	void AddObject(T* objectToAdd, bool load = false, bool initialize = false);
 
 	/// \brief Find an object with a specific tag
-	T* FindObject(const std::wstring& tag);
+	T* FindObject(const std::wstring& name);
 
 	/// \brief Removes an object
 	void RemoveObject(T* objectToRemove);
@@ -193,15 +193,17 @@ void BaseObjectManager<T>::AddObject(T* objectToAdd, bool load, bool initialize)
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 template <typename T>
-T* BaseObjectManager<T>::FindObject(const std::wstring& tag)
+T* BaseObjectManager<T>::FindObject(const std::wstring& name)
 {
 	for (auto& object : m_activeObjects)
 	{
-		if (object->m_tag == tag)
+		if (object->GetName() == name)
 		{
-			return object;
+			return object.get();
 		}
 	}
+
+  return nullptr;
 }
 
 

@@ -24,7 +24,7 @@ BaseObject(Vector2(0, 0), localPosition, dataAsset, loadType, parent)
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 BaseObject::BaseObject(const Vector2& size, const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent) :
-m_tag(L""),
+m_name(L""),
 m_localPosition(localPosition),
 m_localRotation(0),
 m_dataAsset(dataAsset),
@@ -127,9 +127,9 @@ void BaseObject::Draw(SpriteBatch* spriteBatch, SpriteFont* spriteFont)
 	}
 
 	// Put draw code here
-	assert(m_textureHandler->GetTexture());
+	assert(GetTexture()->GetTexture());
 	spriteBatch->Draw(
-		m_textureHandler->GetTexture(), 
+		GetTexture()->GetTexture(), 
 		GetWorldPosition(), 
 		nullptr, 
 		m_colour * m_opacity, 

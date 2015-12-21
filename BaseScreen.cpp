@@ -46,7 +46,7 @@ void BaseScreen::AddInitialUI()
 {
 	// This has to be separate so we can draw it behind all the other objects
 	m_background.reset(new UIObject(GetScreenCentre() * 2, GetScreenCentre(), m_baseScreenData->GetBackgroundAsset(), BaseObject::LoadType::kTexture));
-	m_background->LoadContent(GetDevice().Get());
+	m_background->LoadContent(GetDevice());
 
 	AddScreenUIObject(new Label(Vector2(GetScreenCentre().x, GetScreenCentre().y * 0.25f), m_baseScreenData->GetDisplayName()));
 }
@@ -164,10 +164,20 @@ void BaseScreen::Hide()
 	m_acceptsInput = false;
 }
 
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 const Vector2& BaseScreen::GetScreenCentre() const
 {
 	return ScreenManager::GetScreenCentre();
 }
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+const Vector2& BaseScreen::GetScreenDimensions() const
+{
+  return ScreenManager::GetScreenDimensions();
+}
+
 
 /////////////// Utility function wrappers for the object managers
 

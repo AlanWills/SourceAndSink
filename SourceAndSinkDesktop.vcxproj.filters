@@ -115,6 +115,12 @@
     <Filter Include="Resource Files\Data\Pipes">
       <UniqueIdentifier>{40ef4c9c-7427-4fdb-bf8e-5f6cdb83abb7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Object Classes\Pipes">
+      <UniqueIdentifier>{77951225-8d14-4589-8a34-b34158bf684f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Object Classes\Pipes">
+      <UniqueIdentifier>{2b4d8479-a067-474c-b037-dddb064aca38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -219,14 +225,29 @@
     <ClInclude Include="GameplayScreen.h">
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
-    <ClInclude Include="Pipe.h">
-      <Filter>Header Files\Object Classes</Filter>
-    </ClInclude>
     <ClInclude Include="PipeData.h">
       <Filter>Header Files\Data</Filter>
     </ClInclude>
     <ClInclude Include="GameplayScreenData.h">
       <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipe.h">
+      <Filter>Header Files\Object Classes\Pipes</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalPipe.h">
+      <Filter>Header Files\Object Classes\Pipes</Filter>
+    </ClInclude>
+    <ClInclude Include="SinkPipe.h">
+      <Filter>Header Files\Object Classes\Pipes</Filter>
+    </ClInclude>
+    <ClInclude Include="SourcePipe.h">
+      <Filter>Header Files\Object Classes\Pipes</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickableImage.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -329,14 +350,29 @@
     <ClCompile Include="GameplayScreen.cpp">
       <Filter>Source Files\Screens</Filter>
     </ClCompile>
-    <ClCompile Include="Pipe.cpp">
-      <Filter>Source Files\Object Classes</Filter>
-    </ClCompile>
     <ClCompile Include="PipeData.cpp">
       <Filter>Source Files\Data</Filter>
     </ClCompile>
     <ClCompile Include="GameplayScreenData.cpp">
       <Filter>Source Files\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Pipe.cpp">
+      <Filter>Source Files\Object Classes\Pipes</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalPipe.cpp">
+      <Filter>Source Files\Object Classes\Pipes</Filter>
+    </ClCompile>
+    <ClCompile Include="SinkPipe.cpp">
+      <Filter>Source Files\Object Classes\Pipes</Filter>
+    </ClCompile>
+    <ClCompile Include="SourcePipe.cpp">
+      <Filter>Source Files\Object Classes\Pipes</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickableImage.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
