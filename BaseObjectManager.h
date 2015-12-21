@@ -49,7 +49,7 @@ public:
 	void RemoveObject(T* objectToRemove);
 
   /// \brief Gets all objects
-  const std::list<std::unique_ptr<T>>& GetObjects() const { return m_activeObjects; }
+  const std::list<T*>& GetObjects() const { return m_activeObjects; }
 
 	/// \brief Calls Show() on each active object
 	void ShowAll()
@@ -72,7 +72,7 @@ public:
 	/// \brief Calls Die() on each active object
 	void DieAll()
 	{
-		for (auto& object : m_activeObjects)
+		for (T* object : m_activeObjects)
 		{
 			object->Die();
 		}
@@ -80,7 +80,7 @@ public:
 
 private:
 	/// \brief Typedefs
-	typedef std::list<std::unique_ptr<T>> Objects;
+	typedef std::list<T*> Objects;
 
 	Objects m_activeObjects;
 	Objects m_objectsToDelete;
@@ -113,7 +113,7 @@ BaseObjectManager<T>::~BaseObjectManager()
 template <typename T>
 void BaseObjectManager<T>::LoadContent()
 {
-	for (auto& object : m_activeObjects)
+	for (T* object : m_activeObjects)
 	{
 		object->LoadContent(m_device.Get());
 	}
@@ -124,7 +124,7 @@ void BaseObjectManager<T>::LoadContent()
 template <typename T>
 void BaseObjectManager<T>::Initialize()
 {
-	for (auto& object : m_activeObjects)
+	for (T* object : m_activeObjects)
 	{
 		object->Initialize();
 	}
@@ -135,7 +135,7 @@ void BaseObjectManager<T>::Initialize()
 template <typename T>
 void BaseObjectManager<T>::Update(DX::StepTimer const& timer)
 {
-	for (auto& object : m_activeObjects)
+	for (T* object : m_activeObjects)
 	{
 		if (object->IsAlive())
 		{
@@ -143,14 +143,14 @@ void BaseObjectManager<T>::Update(DX::StepTimer const& timer)
 		}
 		else
 		{
-			RemoveObject(object.get());
+			RemoveObject(object);
 		}
 	}
 
-	for (auto& object : m_objectsToDelete)
+	for (T* object : m_objectsToDelete)
 	{
 		m_activeObjects.remove(object);
-    object.reset(nullptr);
+    delete object;
 	}
 
 	m_objectsToDelete.clear();
@@ -161,7 +161,7 @@ void BaseObjectManager<T>::Update(DX::StepTimer const& timer)
 template <typename T>
 void BaseObjectManager<T>::Draw(SpriteBatch* spriteBatch, SpriteFont* spriteFont)
 {
-	for (auto& object : m_activeObjects)
+	for (T* object : m_activeObjects)
 	{
 		object->Draw(spriteBatch, spriteFont);
 	}
@@ -172,7 +172,7 @@ void BaseObjectManager<T>::Draw(SpriteBatch* spriteBatch, SpriteFont* spriteFont
 template <typename T>
 void BaseObjectManager<T>::HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition)
 {
-	for (auto& object : m_activeObjects)
+	for (T* object : m_activeObjects)
 	{
 		object->HandleInput(timer, mousePosition);
 	}
@@ -193,7 +193,7 @@ void BaseObjectManager<T>::AddObject(T* objectToAdd, bool load, bool initialize)
 		objectToAdd->Initialize();
 	}
 
-	m_activeObjects.push_back(std::unique_ptr<T>(objectToAdd));
+	m_activeObjects.push_back(objectToAdd);
 }
 
 
@@ -201,11 +201,11 @@ void BaseObjectManager<T>::AddObject(T* objectToAdd, bool load, bool initialize)
 template <typename T>
 T* BaseObjectManager<T>::FindObject(const std::string& name)
 {
-	for (auto& object : m_activeObjects)
+	for (T* object : m_activeObjects)
 	{
 		if (object->GetName() == name)
 		{
-			return object.get();
+			return object;
 		}
 	}
 
@@ -218,5 +218,5 @@ template <typename T>
 void BaseObjectManager<T>::RemoveObject(T* objectToRemove)
 {
 	objectToRemove->Die();
-	m_objectsToDelete.push_back(std::unique_ptr<T>(objectToRemove));
+	m_objectsToDelete.push_back(objectToRemove);
 }

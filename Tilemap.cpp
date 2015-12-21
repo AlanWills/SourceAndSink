@@ -85,11 +85,11 @@ Tile* Tilemap::GetClickedTile(const Vector2& mousePosition) const
 {
   assert(IsClicked(mousePosition));
 
-  for (auto& tile : m_tiles->GetObjects())
+  for (Tile* tile : m_tiles->GetObjects())
   {
     if (tile->GetCollider()->CheckCollisionWith(mousePosition))
     {
-      return tile.get();
+      return tile;
     }
   }
 
@@ -102,11 +102,11 @@ const Tile* Tilemap::ConstGetClickedTile(const Vector2& mousePosition) const
 {
   assert(IsClicked(mousePosition));
 
-  for (auto& tile : m_tiles->GetObjects())
+  for (Tile* tile : m_tiles->GetObjects())
   {
     if (tile->GetCollider()->CheckCollisionWith(mousePosition))
     {
-      return tile.get();
+      return tile;
     }
   }
 
