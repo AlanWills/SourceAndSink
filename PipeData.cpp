@@ -4,7 +4,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-PipeData::PipeData(const char* dataAsset) :
+PipeData::PipeData(const std::string& dataAsset) :
   BaseData(dataAsset)
 {
 }

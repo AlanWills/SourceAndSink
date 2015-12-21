@@ -6,7 +6,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-BaseScreen::BaseScreen(ScreenManager* screenManager, const char* dataAsset) :
+BaseScreen::BaseScreen(ScreenManager* screenManager, const std::string& dataAsset) :
 m_screenManager(screenManager),
 m_device(screenManager->GetDevice()),
 m_baseScreenData(new BaseScreenData(dataAsset)),

@@ -3,7 +3,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-SinkPipe::SinkPipe(const char* dataAsset, Tile* parentTile)
+SinkPipe::SinkPipe(const std::string& dataAsset, Tile* parentTile)
   : Pipe(dataAsset, parentTile, PipeStatus::kEmpty)
 {
 }

@@ -3,7 +3,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-SourcePipe::SourcePipe(const char* dataAsset, Tile* parentTile) :
+SourcePipe::SourcePipe(const std::string& dataAsset, Tile* parentTile) :
   Pipe(dataAsset, parentTile, PipeStatus::kFull)
 {
 }

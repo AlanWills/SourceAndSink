@@ -8,7 +8,7 @@
 class GameplayScreenData : public BaseScreenData
 {
 public:
-  GameplayScreenData(const char* dataAsset);
+  GameplayScreenData(const std::string& dataAsset);
   ~GameplayScreenData();
 
   const char* GetTilemapAsset() const;

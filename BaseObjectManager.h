@@ -6,6 +6,11 @@
 #include "GameMouse.h"
 #include "KeyboardInput.h"
 
+#include "BaseObject.h"
+#include "GameObject.h"
+#include "UIObject.h"
+#include "ClickableImage.h"
+
 #include <DirectXCollision.h>
 #include <list>
 
@@ -38,7 +43,7 @@ public:
 	void AddObject(T* objectToAdd, bool load = false, bool initialize = false);
 
 	/// \brief Find an object with a specific tag
-	T* FindObject(const std::wstring& name);
+	T* FindObject(const std::string& name);
 
 	/// \brief Removes an object
 	void RemoveObject(T* objectToRemove);
@@ -145,6 +150,7 @@ void BaseObjectManager<T>::Update(DX::StepTimer const& timer)
 	for (auto& object : m_objectsToDelete)
 	{
 		m_activeObjects.remove(object);
+    object.reset(nullptr);
 	}
 
 	m_objectsToDelete.clear();
@@ -193,7 +199,7 @@ void BaseObjectManager<T>::AddObject(T* objectToAdd, bool load, bool initialize)
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 template <typename T>
-T* BaseObjectManager<T>::FindObject(const std::wstring& name)
+T* BaseObjectManager<T>::FindObject(const std::string& name)
 {
 	for (auto& object : m_activeObjects)
 	{

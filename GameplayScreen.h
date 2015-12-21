@@ -12,7 +12,7 @@
 class GameplayScreen : public BaseScreen
 {
 public:
-	GameplayScreen(ScreenManager* screenManager, const char* dataAsset);
+	GameplayScreen(ScreenManager* screenManager, const std::string& dataAsset);
 	~GameplayScreen();
 
 	void LoadContent() override;
@@ -25,7 +25,7 @@ public:
 
 private:
   template <typename T>
-  void AddPipe(const Vector2& location, const char* dataAsset);
+  void AddPipe(const Vector2& location, const std::string& dataAsset);
 
 	std::unique_ptr<Tilemap> m_backgroundTilemap;
   std::unique_ptr<GameplayScreenData> m_gameplayScreenData;
@@ -39,7 +39,7 @@ private:
 };
 
 template <typename T>
-void GameplayScreen::AddPipe(const Vector2& location, const char* dataAsset)
+void GameplayScreen::AddPipe(const Vector2& location, const std::string& dataAsset)
 {
   // Get the tile we have clicked on
   Tile* clickedTile = m_backgroundTilemap->GetClickedTile(location);

@@ -8,7 +8,7 @@ public:
 	/// \brief Used for static bar value
 	Bar(const float maxValue,
 		const Vector2& localPosition,
-		const char* backgroundDataAsset,
+    const std::string& backgroundDataAsset,
 		LoadType loadType = LoadType::kTexture,
 		BaseObject* parent = nullptr,
 		float lifeTime = FLT_MAX);
@@ -17,7 +17,7 @@ public:
 	Bar(const float maxValue,
 		const Vector2& size,
 		const Vector2& localPosition,
-		const char* backgroundDataAsset,
+    const std::string& backgroundDataAsset,
 		LoadType loadType = LoadType::kTexture,
 		BaseObject* parent = nullptr,
 		float lifeTime = FLT_MAX);
@@ -26,7 +26,7 @@ public:
 	Bar(const float* valueToWatch, 
 		const float maxValue, 
 		const Vector2& localPosition, 
-		const char* backgroundDataAsset, 
+    const std::string& backgroundDataAsset,
 		LoadType loadType = LoadType::kTexture, 
 		BaseObject* parent = nullptr, 
 		float lifeTime = FLT_MAX);
@@ -36,7 +36,7 @@ public:
 		const float maxValue, 
 		const Vector2& size, 
 		const Vector2& localPosition, 
-		const char* backgroundDataAsset, 
+    const std::string& backgroundDataAsset,
 		LoadType loadType = LoadType::kTexture, 
 		BaseObject* parent = nullptr, 
 		float lifeTime = FLT_MAX);

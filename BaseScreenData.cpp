@@ -3,7 +3,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-BaseScreenData::BaseScreenData(const char* dataAsset) :
+BaseScreenData::BaseScreenData(const std::string& dataAsset) :
 	BaseData(dataAsset)
 {
 }

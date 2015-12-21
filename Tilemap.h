@@ -8,7 +8,7 @@
 class Tilemap
 {
 public:
-	Tilemap(Microsoft::WRL::ComPtr<ID3D11Device> device, const char* tilemapDataAsset);
+	Tilemap(Microsoft::WRL::ComPtr<ID3D11Device> device, const std::string& tilemapDataAsset);
 	~Tilemap();
 
 	void LoadContent();

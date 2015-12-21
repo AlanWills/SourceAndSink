@@ -5,7 +5,7 @@
 class SourcePipe : public Pipe
 {
 public:
-  SourcePipe(const char* dataAsset, Tile* parentTile);
+  SourcePipe(const std::string& dataAsset, Tile* parentTile);
   ~SourcePipe();
 
 private:

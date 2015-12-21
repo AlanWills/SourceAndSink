@@ -42,34 +42,49 @@ void HUD::AddInitialUI()
       
     }*/
 
-    ClickableImage* image = new ClickableImage(Vector2(m_gameplayScreen->GetScreenDimensions().x - 200, (float)300 + pipeIndex * 100), pipeData->GetEmptyTextureAsset(), BaseObject::LoadType::kTexture, this);
+    ClickableImage* image = new ClickableImage(Vector2(m_gameplayScreen->GetScreenDimensions().x * 0.5f - 200, (float)-150 + pipeIndex * 100), pipeData->GetEmptyTextureAsset(), BaseObject::LoadType::kTexture, this);
     image->SetClickFunction([this, image]()
     {
-      m_selectedPipeImage = image;
-      RemoveUIObject(L"Selected Pipe Image");
-
-      UIObject* selectedPipeImage = new UIObject(Vector2(200, 200), GetSelectedPipeAsset(), LoadType::kTexture, this);
-      selectedPipeImage->SetName(L"Selected Pipe Image");
-      AddUIObject(selectedPipeImage, true, true);
+      m_selectedPipeImage = new UIObject(Vector2(200, 200), image->GetDataAsset(), LoadType::kTexture, this);
+      m_selectedPipeImage->LoadContent(m_gameplayScreen->GetDevice());
+      m_selectedPipeImage->Initialize();
+      m_selectedPipeImage->SetName(image->GetName());
     });
+    image->SetName(pipeData->GetDataAsset());
 
     AddUIObject(image);
 
-    // Initialize the selected pipe asset
-    m_selectedPipeImage = image;
+    // Initialize the starting selected pipe
+    m_selectedPipeImage = new UIObject(Vector2(200, 200), pipeData->GetEmptyTextureAsset(), LoadType::kTexture, this);
+    m_selectedPipeImage->SetName(pipeData->GetDataAsset());
 
     pipeIndex++;
   }
 
-  UIObject* selectedPipeImage = new UIObject(Vector2(200, 200), GetSelectedPipeAsset(), LoadType::kTexture, this);
-  selectedPipeImage->SetName(L"Selected Pipe Image");
-  AddUIObject(selectedPipeImage);
+  m_selectedPipeImage->LoadContent(m_gameplayScreen->GetDevice());
+  m_selectedPipeImage->Initialize();
 }
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-const char* HUD::GetSelectedPipeAsset() const
+void HUD::Draw(SpriteBatch* spriteBatch, SpriteFont* spriteFont)
+{
+  Menu::Draw(spriteBatch, spriteFont);
+
+  if (IsVisible())
+  {
+    assert(m_selectedPipeImage);
+    m_selectedPipeImage->Draw(spriteBatch, spriteFont);
+  }
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+const std::string& HUD::GetSelectedPipeDataAsset() const
 {
   assert(m_selectedPipeImage);
-  return m_selectedPipeImage->GetStoredObjectAs<std::string>().c_str();
+  const std::string& dataAsset = m_selectedPipeImage->GetName();
+  assert(!dataAsset.empty());
+
+  return dataAsset;
 }

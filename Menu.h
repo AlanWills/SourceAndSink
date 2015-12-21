@@ -6,8 +6,8 @@
 class Menu : public UIObject
 {
 public:
-	Menu(ID3D11Device* device, const Vector2& localPosition, const char* dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
-	Menu(ID3D11Device* device, const Vector2& size, const Vector2& localPosition, const char* dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
+	Menu(ID3D11Device* device, const Vector2& localPosition, const std::string& dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
+	Menu(ID3D11Device* device, const Vector2& size, const Vector2& localPosition, const std::string& dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
 	~Menu();
 
 	void LoadContent(ID3D11Device* device) override;
@@ -35,8 +35,8 @@ public:
 
 	/// \brief Wrapper functions for adding/removing in UI objects
 	void AddUIObject(UIObject* uiObject, bool load = false, bool initialize = false);
-  UIObject* FindObject(const std::wstring& uiObjectName) const;
-  void RemoveUIObject(const std::wstring& uiObjectName);
+  UIObject* FindObject(const std::string& uiObjectName) const;
+  void RemoveUIObject(const std::string& uiObjectName);
 	void RemoveUIObject(UIObject* uiObject);
 
 protected:

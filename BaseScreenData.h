@@ -5,7 +5,7 @@
 class BaseScreenData : public BaseData
 {
 public:
-	BaseScreenData(const char* dataAsset);
+	BaseScreenData(const std::string& dataAsset);
 	~BaseScreenData();
 
 	const std::wstring GetDisplayName() const;

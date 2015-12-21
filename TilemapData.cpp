@@ -4,7 +4,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-TilemapData::TilemapData(const char* dataAsset) :
+TilemapData::TilemapData(const std::string& dataAsset) :
 	BaseData(dataAsset)
 {
 }

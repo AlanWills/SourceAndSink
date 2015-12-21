@@ -5,21 +5,21 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-GameObject::GameObject(const char* dataAsset, LoadType loadType, BaseObject* parent) :
+GameObject::GameObject(const std::string& dataAsset, LoadType loadType, BaseObject* parent) :
 	GameObject(Vector2::Zero, Vector2::Zero, dataAsset, loadType, parent)
 {
 }
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-GameObject::GameObject(const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent) :
+GameObject::GameObject(const Vector2& localPosition, const std::string& dataAsset, LoadType loadType, BaseObject* parent) :
 	GameObject(Vector2::Zero, localPosition, dataAsset, loadType, parent)
 {
 }
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-GameObject::GameObject(const Vector2& size, const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent) :
+GameObject::GameObject(const Vector2& size, const Vector2& localPosition, const std::string& dataAsset, LoadType loadType, BaseObject* parent) :
 	BaseObject(size, localPosition, dataAsset, loadType, parent),
 	m_rigidBody(nullptr),
 	m_health(1)

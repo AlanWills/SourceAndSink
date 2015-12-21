@@ -16,9 +16,9 @@ public:
 		kNoLoad
 	};
 
-	BaseObject(const char* dataAsset, LoadType = LoadType::kData, BaseObject* parent = nullptr);
-	BaseObject(const Vector2& localPosition, const char* dataAsset, LoadType = LoadType::kData, BaseObject* parent = nullptr);
-	BaseObject(const Vector2& size, const Vector2& localPosition, const char* dataAsset, LoadType = LoadType::kData, BaseObject* parent = nullptr);
+	BaseObject(const std::string& dataAsset, LoadType = LoadType::kData, BaseObject* parent = nullptr);
+	BaseObject(const Vector2& localPosition, const std::string& dataAsset, LoadType = LoadType::kData, BaseObject* parent = nullptr);
+	BaseObject(const Vector2& size, const Vector2& localPosition, const std::string& dataAsset, LoadType = LoadType::kData, BaseObject* parent = nullptr);
 	
 	virtual ~BaseObject();
 
@@ -26,7 +26,7 @@ public:
 	virtual void LoadContent(ID3D11Device* device);
 
   /// \brief Uses the inputted char* to load a texture to the texture handler
-  void LoadTexture(ID3D11Device* device, const char* textureAsset);
+  void LoadTexture(ID3D11Device* device, const std::string& textureAsset);
 
 	/// \brief Initializes data before update begins
 	virtual void Initialize();
@@ -95,8 +95,8 @@ public:
 	float GetLocalRotation() const { return m_localRotation; }
 	void SetLocalRotation(const float localRotation) { m_localRotation = XMScalarModAngle(localRotation); }
 
-	const std::wstring& GetName() const { return m_name; }
-	void SetName(const std::wstring& name) { m_name = name; }
+	const std::string& GetName() const { return m_name; }
+	void SetName(const std::string& name) { m_name = name; }
 
 	const Vector2& GetSize() const { return m_size; }
 	void SetSize(const Vector2& size) { m_size = size; }
@@ -114,7 +114,7 @@ public:
 
 	Collider* GetCollider() const { return m_collider.get(); }
 
-  const char* GetDataAsset() const { return m_dataAsset; }
+  const std::string& GetDataAsset() const { return m_dataAsset; }
 
 protected:
 
@@ -131,10 +131,10 @@ private:
 	LoadType m_loadType;
 
 	// Data asset
-	const char* m_dataAsset;
+  std::string m_dataAsset;
 
 	// A string to identify the object
-	std::wstring m_name;
+	std::string m_name;
 
 	// Local position from parent
 	Vector2 m_localPosition;

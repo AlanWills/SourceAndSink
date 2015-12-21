@@ -6,8 +6,8 @@
 class Button : public ClickableImage
 {
 public:
-	Button(const Vector2& localPosition, const std::wstring& text, const char* dataAsset = "Button.png", LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
-	Button(const Vector2& size, const Vector2& localPosition, const std::wstring& text, const char* dataAsset = "Button.png", LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
+	Button(const Vector2& localPosition, const std::wstring& text, const std::string& dataAsset = "Button.png", LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
+	Button(const Vector2& size, const Vector2& localPosition, const std::wstring& text, const std::string& dataAsset = "Button.png", LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
 	~Button();
 
 	void Initialize() override;

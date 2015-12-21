@@ -7,7 +7,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-BaseObject::BaseObject(const char* dataAsset, LoadType loadType, BaseObject* parent) :
+BaseObject::BaseObject(const std::string& dataAsset, LoadType loadType, BaseObject* parent) :
 BaseObject(Vector2(0, 0), Vector2(0, 0), dataAsset, loadType, parent)
 {
 
@@ -15,7 +15,7 @@ BaseObject(Vector2(0, 0), Vector2(0, 0), dataAsset, loadType, parent)
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-BaseObject::BaseObject(const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent) :
+BaseObject::BaseObject(const Vector2& localPosition, const std::string& dataAsset, LoadType loadType, BaseObject* parent) :
 BaseObject(Vector2(0, 0), localPosition, dataAsset, loadType, parent)
 {
 
@@ -23,8 +23,8 @@ BaseObject(Vector2(0, 0), localPosition, dataAsset, loadType, parent)
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-BaseObject::BaseObject(const Vector2& size, const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent) :
-m_name(L""),
+BaseObject::BaseObject(const Vector2& size, const Vector2& localPosition, const std::string& dataAsset, LoadType loadType, BaseObject* parent) :
+m_name(""),
 m_localPosition(localPosition),
 m_localRotation(0),
 m_dataAsset(dataAsset),
@@ -74,9 +74,9 @@ void BaseObject::LoadContent(ID3D11Device* device)
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-void BaseObject::LoadTexture(ID3D11Device* device, const char* textureAsset)
+void BaseObject::LoadTexture(ID3D11Device* device, const std::string& textureAsset)
 {
-  const wchar_t* wTextureAsset = GenericUtils::CharToWChar(textureAsset);
+  const wchar_t* wTextureAsset = GenericUtils::CharToWChar(textureAsset.c_str());
   m_textureHandler->Load(device, wTextureAsset);
 
   assert(m_textureHandler->GetTexture());

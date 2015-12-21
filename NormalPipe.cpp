@@ -5,7 +5,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-NormalPipe::NormalPipe(const char* dataAsset, Tile* parentTile) :
+NormalPipe::NormalPipe(const std::string& dataAsset, Tile* parentTile) :
   Pipe(dataAsset, parentTile, PipeStatus::kEmpty)
 {
 }

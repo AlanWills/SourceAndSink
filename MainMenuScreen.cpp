@@ -7,7 +7,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-MainMenuScreen::MainMenuScreen(ScreenManager* screenManager, const char* dataAsset) :
+MainMenuScreen::MainMenuScreen(ScreenManager* screenManager, const std::string& dataAsset) :
 	BaseScreen(screenManager, dataAsset)
 {
 }

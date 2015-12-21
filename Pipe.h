@@ -75,7 +75,7 @@ public:
     }
   };
 
-  Pipe(const char* dataAsset, Tile* parentTile, PipeStatus initialPipeStatus = kEmpty);
+  Pipe(const std::string& dataAsset, Tile* parentTile, PipeStatus initialPipeStatus = kEmpty);
   ~Pipe();
 
   void LoadContent(ID3D11Device* device) override;

@@ -10,8 +10,11 @@ class HUD : public Menu
 public:
   HUD(GameplayScreen* gameplayScreen);
   ~HUD();
+  
+  void Draw(SpriteBatch* spriteBatch, SpriteFont* spriteFont) override;
 
-  const char* GetSelectedPipeAsset() const;
+  /// \brief Get the .xml filename for the pipe data asset
+  const std::string& GetSelectedPipeDataAsset() const;
 
 protected:
   void AddInitialUI() override;
@@ -21,6 +24,6 @@ private:
   const GameplayScreen* m_gameplayScreen;
 
   /// \brief Current selected pipe the user wants to place
-  const ClickableImage* m_selectedPipeImage;
+  UIObject* m_selectedPipeImage;
 };
 

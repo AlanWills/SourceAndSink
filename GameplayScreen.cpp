@@ -9,7 +9,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-GameplayScreen::GameplayScreen(ScreenManager* screenManager, const char* dataAsset) :
+GameplayScreen::GameplayScreen(ScreenManager* screenManager, const std::string& dataAsset) :
   BaseScreen(screenManager, dataAsset),
   m_gameplayScreenData(new GameplayScreenData(dataAsset)),
   m_backgroundTilemap(nullptr),
@@ -50,7 +50,7 @@ void GameplayScreen::Initialize()
 
 	m_backgroundTilemap->Initialize();
 
-  AddPipe<SourcePipe>(GetScreenCentre(), m_hud->GetSelectedPipeAsset());
+  //AddPipe<SourcePipe>(GetScreenCentre(), m_hud->GetSelectedPipeAsset());
 }
 
 
@@ -92,7 +92,7 @@ void GameplayScreen::HandleInput(DX::StepTimer const& timer)
     // Check that we have clicked the mouse and clicked on the tilemap
     if (gameMouse.IsClicked(GameMouse::MouseButton::kLeftButton) && m_backgroundTilemap->IsClicked(gameMouse.GetInGamePosition()))
     {
-      AddPipe<NormalPipe>(gameMouse.GetInGamePosition(), m_hud->GetSelectedPipeAsset());
+      AddPipe<NormalPipe>(gameMouse.GetInGamePosition(), m_hud->GetSelectedPipeDataAsset());
     }
 	}
 }

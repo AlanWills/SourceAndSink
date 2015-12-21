@@ -5,7 +5,7 @@
 class NormalPipe : public Pipe
 {
 public:
-  NormalPipe(const char* dataAsset, Tile* parentTile);
+  NormalPipe(const std::string& dataAsset, Tile* parentTile);
   ~NormalPipe();
 
 private:

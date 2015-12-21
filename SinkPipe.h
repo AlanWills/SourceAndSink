@@ -5,7 +5,7 @@
 class SinkPipe : public Pipe
 {
 public:
-  SinkPipe(const char* dataAsset, Tile* parentTile);
+  SinkPipe(const std::string& dataAsset, Tile* parentTile);
   ~SinkPipe();
 
 private:

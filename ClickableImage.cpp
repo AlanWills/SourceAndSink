@@ -3,14 +3,14 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-ClickableImage::ClickableImage(const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent, float lifeTime)
+ClickableImage::ClickableImage(const Vector2& localPosition, const std::string& dataAsset, LoadType loadType, BaseObject* parent, float lifeTime)
   : ClickableImage(Vector2::Zero, localPosition, dataAsset, loadType, parent, lifeTime)
 {
 }
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-ClickableImage::ClickableImage(const Vector2& size, const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent, float lifeTime)
+ClickableImage::ClickableImage(const Vector2& size, const Vector2& localPosition, const std::string& dataAsset, LoadType loadType, BaseObject* parent, float lifeTime)
   : UIObject(size, localPosition, dataAsset, loadType, parent, lifeTime),
   m_clickState(kIdle),
   m_resetTime(0.05f),
@@ -53,7 +53,7 @@ void ClickableImage::HandleInput(DX::StepTimer const& timer, const Vector2& mous
       m_clickState = ClickState::kHighlighted;
     }
 
-    if (IsSelected())
+    if (IsClicked())
     {
       if (m_clickState != ClickState::kPressed)
       {
@@ -61,6 +61,7 @@ void ClickableImage::HandleInput(DX::StepTimer const& timer, const Vector2& mous
 
         m_clickFunction();
         m_clickState = ClickState::kPressed;
+        m_clickResetTimer = 0;
       }
     }
   }

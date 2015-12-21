@@ -17,7 +17,7 @@ class ScreenManager;
 class BaseScreen
 {
 public:
-	BaseScreen(ScreenManager* screenManager, const char* dataAsset);
+	BaseScreen(ScreenManager* screenManager, const std::string& dataAsset);
 	virtual ~BaseScreen();
 
 	/// \brief Adds initial UI before the load context and initialize steps

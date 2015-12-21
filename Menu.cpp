@@ -3,14 +3,14 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-Menu::Menu(ID3D11Device* device, const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent, float lifeTime) :
+Menu::Menu(ID3D11Device* device, const Vector2& localPosition, const std::string& dataAsset, LoadType loadType, BaseObject* parent, float lifeTime) :
 	Menu(device, Vector2::Zero, localPosition, dataAsset, loadType, parent, lifeTime)
 {
 }
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-Menu::Menu(ID3D11Device* device, const Vector2& size, const Vector2& localPosition, const char* dataAsset, LoadType loadType, BaseObject* parent, float lifeTime) :
+Menu::Menu(ID3D11Device* device, const Vector2& size, const Vector2& localPosition, const std::string& dataAsset, LoadType loadType, BaseObject* parent, float lifeTime) :
 	UIObject(size, localPosition, dataAsset, loadType, parent, lifeTime),
 	m_uiObjects(new UIObjects(device))
 {
@@ -118,7 +118,7 @@ void Menu::AddUIObject(UIObject* uiObject, bool load, bool initialize)
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-UIObject* Menu::FindObject(const std::wstring& uiobjectName) const
+UIObject* Menu::FindObject(const std::string& uiobjectName) const
 {
   return m_uiObjects->FindObject(uiobjectName);
 }
@@ -132,7 +132,7 @@ void Menu::RemoveUIObject(UIObject* uiObject)
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-void Menu::RemoveUIObject(const std::wstring& uiObjectName)
+void Menu::RemoveUIObject(const std::string& uiObjectName)
 {
   RemoveUIObject(m_uiObjects->FindObject(uiObjectName));
 }

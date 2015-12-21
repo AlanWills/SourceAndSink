@@ -7,7 +7,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-Pipe::Pipe(const char* dataAsset, Tile* parent, PipeStatus initialPipeStatus) :
+Pipe::Pipe(const std::string& dataAsset, Tile* parent, PipeStatus initialPipeStatus) :
   GameObject(dataAsset, LoadType::kData, parent),
   m_pipeData(new PipeData(dataAsset)),
   m_pipeStatus(initialPipeStatus),
@@ -86,7 +86,7 @@ Texture2D* Pipe::GetTexture() const
   if (m_pipeStatus == kEmpty)
   {
     // Return empty texture
-    GameObject::GetTexture();
+    return GameObject::GetTexture();
   }
   else
   {

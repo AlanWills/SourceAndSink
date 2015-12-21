@@ -6,7 +6,7 @@
 class PipeData : public BaseData
 {
 public:
-  PipeData(const char* dataAsset);
+  PipeData(const std::string& dataAsset);
   ~PipeData();
 
   const char* GetEmptyTextureAsset() const;

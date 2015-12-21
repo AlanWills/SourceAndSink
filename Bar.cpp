@@ -7,7 +7,7 @@
 Bar::Bar(
 	const float maxValue,
 	const Vector2& localPosition,
-	const char* backgroundDataAsset,
+  const std::string& backgroundDataAsset,
 	LoadType loadType,
 	BaseObject* parent,
 	float lifeTime) :
@@ -21,7 +21,7 @@ Bar::Bar(
 	const float maxValue,
 	const Vector2& size,
 	const Vector2& localPosition,
-	const char* backgroundDataAsset,
+  const std::string& backgroundDataAsset,
 	LoadType loadType,
 	BaseObject* parent,
 	float lifeTime) :
@@ -38,7 +38,7 @@ Bar::Bar(
 	const float* valueToWatch,
 	const float maxValue,
 	const Vector2& localPosition,
-	const char* dataAsset,
+  const std::string& dataAsset,
 	LoadType loadType,
 	BaseObject* parent,
 	float lifeTime) :
@@ -53,7 +53,7 @@ Bar::Bar(
 	const float maxValue, 
 	const Vector2& size, 
 	const Vector2& localPosition, 
-	const char* dataAsset,
+  const std::string& dataAsset,
 	LoadType loadType,
 	BaseObject* parent,
 	float lifeTime) :
@@ -76,7 +76,7 @@ void Bar::LoadContent(ID3D11Device* device)
 {
 	UIObject::LoadContent(device);
 
-	m_frontTexture->Load(device, GenericUtils::CharToWChar(GetDataAsset()));
+	m_frontTexture->Load(device, GenericUtils::CharToWChar(GetDataAsset().c_str()));
 }
 
 

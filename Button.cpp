@@ -4,14 +4,14 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-Button::Button(const Vector2& localPosition, const std::wstring& text, const char* dataAsset, LoadType loadType, BaseObject* parent, float lifeTime) :
+Button::Button(const Vector2& localPosition, const std::wstring& text, const std::string& dataAsset, LoadType loadType, BaseObject* parent, float lifeTime) :
 	Button(Vector2::Zero, localPosition, text, dataAsset, loadType, parent, lifeTime)
 {
 }
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-Button::Button(const Vector2& size, const Vector2& localPosition, const std::wstring& text, const char* dataAsset, LoadType loadType, BaseObject* parent, float lifeTime) :
+Button::Button(const Vector2& size, const Vector2& localPosition, const std::wstring& text, const std::string& dataAsset, LoadType loadType, BaseObject* parent, float lifeTime) :
 	ClickableImage(size, localPosition, dataAsset, loadType, parent, lifeTime),
 	m_label(new Label(text, this))
 {

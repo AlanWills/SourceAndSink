@@ -15,7 +15,7 @@ public:
     kNumNeighbours
   };
 
-	Tile(const Vector2& localPosition, std::pair<int, int> tilemapCoords, const char* dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* baseObject = nullptr);
+	Tile(const Vector2& localPosition, std::pair<int, int> tilemapCoords, const std::string& dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* baseObject = nullptr);
 	~Tile();
 
   const bool IsOccupied() const { return m_storedObject != nullptr; }

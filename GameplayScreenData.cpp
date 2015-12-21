@@ -3,7 +3,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-GameplayScreenData::GameplayScreenData(const char* dataAsset) :
+GameplayScreenData::GameplayScreenData(const std::string& dataAsset) :
   BaseScreenData(dataAsset)
 {
 }

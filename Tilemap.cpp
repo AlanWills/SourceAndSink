@@ -3,7 +3,7 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-Tilemap::Tilemap(Microsoft::WRL::ComPtr<ID3D11Device> device, const char* tilemapDataAsset) :
+Tilemap::Tilemap(Microsoft::WRL::ComPtr<ID3D11Device> device, const std::string& tilemapDataAsset) :
 	m_tiles(new BaseObjectManager<Tile>(device)),
 	m_tilemapData(new TilemapData(tilemapDataAsset))
 {

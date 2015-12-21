@@ -5,9 +5,9 @@
 class ClickableImage : public UIObject
 {
 public:
-  ClickableImage(const Vector2& localPosition, const char* dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
-  ClickableImage(const Vector2& size, const Vector2& localPosition, const char* dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
-  ~ClickableImage();
+  ClickableImage(const Vector2& localPosition, const std::string& dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
+  ClickableImage(const Vector2& size, const Vector2& localPosition, const std::string& dataAsset, LoadType loadType = LoadType::kTexture, BaseObject* parent = nullptr, float lifeTime = FLT_MAX);
+  virtual ~ClickableImage();
 
   void Update(DX::StepTimer const& timer) override;
   void HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition) override;
