@@ -4,6 +4,7 @@
 
 #include "ScreenManager.h"
 
+#include "SinkPipe.h"
 #include "SourcePipe.h"
 #include "NormalPipe.h"
 
@@ -47,7 +48,24 @@ void GameplayScreen::Initialize()
 
 	m_backgroundTilemap->Initialize();
 
-  
+  std::unordered_map<std::string, std::pair<int, int>> m_sources;
+  m_gameplayScreenData->GetSourcesForLevel(m_sources);
+
+  for (std::pair<std::string, std::pair<int, int>> sourceInfo : m_sources)
+  {
+    Vector2 position = m_backgroundTilemap->GetWorldSpacePositionFromCoords(sourceInfo.second.first, sourceInfo.second.second);
+    AddPipe<SourcePipe>(position, sourceInfo.first);
+  }
+
+  // Clear our map so that we can reuse it for the sinks
+  m_sources.clear();
+  m_gameplayScreenData->GetSinksForLevel(m_sources);
+
+  for (std::pair<std::string, std::pair<int, int>> sinkInfo : m_sources)
+  {
+    Vector2 position = m_backgroundTilemap->GetWorldSpacePositionFromCoords(sinkInfo.second.first, sinkInfo.second.second);
+    AddPipe<SinkPipe>(position, sinkInfo.first);
+  }
 }
 
 

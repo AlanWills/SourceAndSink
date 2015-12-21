@@ -5,7 +5,6 @@
   <TilemapAsset>Level1Tilemap.xml</TilemapAsset>
   <AvailablePipes>
     <StraightPipe.xml>1</StraightPipe.xml>
-    <CornerPipe.xml>1</CornerPipe.xml>
     <QuadPipe.xml>1</QuadPipe.xml>
     <TPipe.xml>1</TPipe.xml>
   </AvailablePipes>

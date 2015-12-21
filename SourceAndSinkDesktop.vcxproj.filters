@@ -435,9 +435,6 @@
     <Xml Include="MainMenuScreen.xml">
       <Filter>Resource Files\Data\Screens</Filter>
     </Xml>
-    <Xml Include="Level1.xml">
-      <Filter>Resource Files\Data\Levels</Filter>
-    </Xml>
     <Xml Include="StraightPipe.xml">
       <Filter>Resource Files\Data\Pipes</Filter>
     </Xml>
@@ -452,6 +449,9 @@
     </Xml>
     <Xml Include="TPipe.xml">
       <Filter>Resource Files\Data\Pipes</Filter>
+    </Xml>
+    <Xml Include="Level1Tilemap.xml">
+      <Filter>Resource Files\Data\Levels</Filter>
     </Xml>
   </ItemGroup>
 </Project>

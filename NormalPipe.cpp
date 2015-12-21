@@ -27,20 +27,24 @@ void NormalPipe::UpdatePipeStatus()
   // Iterate through the neighbours and work out if this pipe is connect to a pipe with water in it
   for (int neighbour = Tile::kUp; neighbour != Tile::kNumNeighbours; neighbour++)
   {
-    // Check to see if the neighbour tile exists
-    const Tile* neighbourTile = tile->GetNeighbour(static_cast<Tile::Neighbours>(neighbour));
-    if (neighbourTile)
+    // Check to see if ourpipe has an opening onto this particular neighbour direction
+    if (GetPipeInfo().m_pipeInfoArray[neighbour])
     {
-      // If the neighbour tile exists we need to get it's stored pipe
-      const Pipe* neighbourPipe = neighbourTile->GetStoredObjectAs<Pipe>();
-      if (neighbourPipe && neighbourPipe->GetPipeStatus() == PipeStatus::kFull)
+      // Check to see if the neighbour tile exists
+      const Tile* neighbourTile = tile->GetNeighbour(static_cast<Tile::Neighbours>(neighbour));
+      if (neighbourTile)
       {
-        // If the neighbour tile has a pipe which is full we need to check whether the pipes match up
-        if (GetPipeInfo().m_pipeInfoArray[neighbour] == true && neighbourPipe->GetPipeInfo().CheckMatch(static_cast<PipeInfo::PipeDirection>(neighbour)))
+        // If the neighbour tile exists we need to get it's stored pipe
+        const Pipe* neighbourPipe = neighbourTile->GetStoredObjectAs<Pipe>();
+        if (neighbourPipe && neighbourPipe->GetPipeStatus() == PipeStatus::kFull)
         {
-          // We are connect to a full pipe so we can automatically stop searching and set the status to full
-          SetPipeStatus(PipeStatus::kFull);
-          return;
+          // If the neighbour tile has a pipe which is full we need to check whether the pipes match up
+          if (GetPipeInfo().m_pipeInfoArray[neighbour] == true && neighbourPipe->GetPipeInfo().CheckMatch(static_cast<PipeInfo::PipeDirection>(neighbour)))
+          {
+            // We are connect to a full pipe so we can automatically stop searching and set the status to full
+            SetPipeStatus(PipeStatus::kFull);
+            return;
+          }
         }
       }
     }
