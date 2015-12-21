@@ -2,11 +2,17 @@
 <Root>
   <DisplayName></DisplayName>
   <BackgroundTextureAsset>EmptyBackground.png</BackgroundTextureAsset>
-  <TilemapAsset>Level1.xml</TilemapAsset>
-  <Pipes>
+  <TilemapAsset>Level1Tilemap.xml</TilemapAsset>
+  <AvailablePipes>
     <StraightPipe.xml>1</StraightPipe.xml>
     <CornerPipe.xml>1</CornerPipe.xml>
     <QuadPipe.xml>1</QuadPipe.xml>
     <TPipe.xml>1</TPipe.xml>
-  </Pipes>
+  </AvailablePipes>
+  <Sinks>
+    <StraightPipe x="1" y="3">StraightPipe.xml</StraightPipe>
+  </Sinks>
+  <Sources>
+    <QuadPipe x="3" y="3">QuadPipe.xml</QuadPipe>
+  </Sources>
 </Root>

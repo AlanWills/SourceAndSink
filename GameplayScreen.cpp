@@ -35,9 +35,6 @@ void GameplayScreen::LoadContent()
   m_backgroundTilemap.reset(new Tilemap(GetDevice(), m_gameplayScreenData->GetTilemapAsset()));
   m_backgroundTilemap->LoadContent();
 
-  std::unordered_map<const char*, int> pipeData;
-  m_gameplayScreenData->GetAvailablePipesForLevel(pipeData);
-
   m_hud = new HUD(this);
   AddScreenUIObject(m_hud, true, false);
 }
@@ -50,7 +47,7 @@ void GameplayScreen::Initialize()
 
 	m_backgroundTilemap->Initialize();
 
-  //AddPipe<SourcePipe>(GetScreenCentre(), m_hud->GetSelectedPipeAsset());
+  
 }
 
 

@@ -20,7 +20,7 @@ TilemapData::~TilemapData()
 void TilemapData::GetTiles(std::list<Tile*>& tileData, TilemapInfo& tilemap)
 {
 	// Push back tiles here
-	const XMLElement* tilesElement = GetDocument()->RootElement()->FirstChildElement("Tiles");
+	const XMLElement* tilesElement = GetDocument()->RootElement()->FirstChildElement("AvailableTiles");
 	assert(tilesElement);
 
   float startX = 0, startY = 0;

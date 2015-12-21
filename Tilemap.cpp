@@ -112,3 +112,11 @@ const Tile* Tilemap::ConstGetClickedTile(const Vector2& mousePosition) const
 
   return nullptr;
 }
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+const Vector2& Tilemap::GetWorldSpacePositionFromCoords(const int xCoord, const int yCoord)
+{
+  assert(m_tilemap.at(yCoord).at(xCoord));
+  return m_tilemap.at(yCoord).at(xCoord)->GetWorldPosition();
+}

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Root>
   <DisplayName>Level 1</DisplayName>
-  <NumberOfTiles>1</NumberOfTiles>
   <Tiles x="832" y="412">
     <Row tiles ="5"></Row>
     <Row tiles ="5"></Row>

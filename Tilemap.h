@@ -22,6 +22,9 @@ public:
   Tile* GetClickedTile(const Vector2& mousePosition) const;
   const Tile* ConstGetClickedTile(const Vector2& mousePosition) const;
 
+  /// \brief Returns the world space coordinates from the inputted tilemap grid coordinates
+  const Vector2& GetWorldSpacePositionFromCoords(const int xCoord, const int yCoord);
+
 private:
 	/// \brief Typedefs
 	typedef std::unique_ptr<BaseObjectManager<Tile>> Tiles;

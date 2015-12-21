@@ -26,12 +26,12 @@ HUD::~HUD()
 void HUD::AddInitialUI()
 {
   assert(m_gameplayScreen);
-  std::unordered_map<const char*, int> pipeData;
+  std::unordered_map<std::string, int> pipeData;
   m_gameplayScreen->GetGameplayScreenData()->GetAvailablePipesForLevel(pipeData);
 
   // Used for positioning the UI clickable images for the pipes on the screen
   int pipeIndex = 0;
-  for (std::pair<const char*, int> pair : pipeData)
+  for (std::pair<std::string, int> pair : pipeData)
   {
     // Store the string for this pipe
     std::unique_ptr<PipeData> pipeData(new PipeData(pair.first));

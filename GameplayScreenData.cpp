@@ -23,7 +23,7 @@ const char* GameplayScreenData::GetTilemapAsset() const
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-void GameplayScreenData::GetAvailablePipesForLevel(std::unordered_map<const char*, int>& pipeDataAssets) const
+void GameplayScreenData::GetAvailablePipesForLevel(std::unordered_map<std::string, int>& pipeDataAssets) const
 {
   // Push back the number and name of the tiles in this level
   const XMLElement* pipesElement = GetDocument()->RootElement()->FirstChildElement("Pipes");
@@ -41,10 +41,7 @@ void GameplayScreenData::GetAvailablePipesForLevel(std::unordered_map<const char
       continue;
     }
 
-    // Get the name of the pipe asset
-    const char* pipeAsset = item->Name();
-
     // Push back the data
-    pipeDataAssets.insert(std::pair<const char*, int>(pipeAsset, numPipes));
+    pipeDataAssets.insert(std::pair<const std::string&, int>(item->Name(), numPipes));
   }
 }
