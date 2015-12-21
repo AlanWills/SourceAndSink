@@ -1,4 +1,6 @@
 #include "pch.h"
+
+#include "UIObject.h"
 #include "GameMouse.h"
 #include "ScreenManager.h"
 
@@ -16,7 +18,7 @@ GameMouse::GameMouse()
 	ShowCursor(false);
 #endif
 
-	for (int i = 0; i < MouseButton::kNumButtons; i++)
+	for (unsigned int i = 0; i < static_cast<unsigned int>(MouseButton::kNumButtons); i++)
 	{
 		m_mouseClickStates[i] = false;
 	}
@@ -67,34 +69,34 @@ void GameMouse::HandleInput(DX::StepTimer const& timer)
 	// If the value in the Mouse.h class is true that means it is down
 	if (m_mouseButtonState->leftButton == Mouse::ButtonStateTracker::PRESSED && m_clickDelayTimer >= 0.02f)
 	{
-		m_mouseClickStates[MouseButton::kLeftButton] = true;
+		m_mouseClickStates[static_cast<unsigned int>(MouseButton::kLeftButton)] = true;
 		m_clickDelayTimer = 0;
 	}
 	else
 	{
-		m_mouseClickStates[MouseButton::kLeftButton] = false;
+		m_mouseClickStates[static_cast<unsigned int>(MouseButton::kLeftButton)] = false;
 		m_clickDelayTimer += (float)timer.GetElapsedSeconds();
 	}
 
 	if (m_mouseButtonState->middleButton == Mouse::ButtonStateTracker::PRESSED && m_clickDelayTimer >= 0.02f)
 	{
-		m_mouseClickStates[MouseButton::kMiddleButton] = true;
+		m_mouseClickStates[static_cast<unsigned int>(MouseButton::kMiddleButton)] = true;
 		m_clickDelayTimer = 0;
 	}
 	else
 	{
-		m_mouseClickStates[MouseButton::kMiddleButton] = false;
+		m_mouseClickStates[static_cast<unsigned int>(MouseButton::kMiddleButton)] = false;
 		m_clickDelayTimer += (float)timer.GetElapsedSeconds();
 	}
 
 	if (m_mouseButtonState->rightButton == Mouse::ButtonStateTracker::PRESSED && m_clickDelayTimer >= 0.02f)
 	{
-		m_mouseClickStates[MouseButton::kRightButton] = true;
+		m_mouseClickStates[static_cast<unsigned int>(MouseButton::kRightButton)] = true;
 		m_clickDelayTimer = 0;
 	}
 	else
 	{
-		m_mouseClickStates[MouseButton::kRightButton] = false;
+		m_mouseClickStates[static_cast<unsigned int>(MouseButton::kRightButton)] = false;
 		m_clickDelayTimer += (float)timer.GetElapsedSeconds();
 	}
 }

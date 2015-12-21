@@ -1,5 +1,6 @@
 #pragma once
 
+#include "MouseButton.h"
 #include "UIObject.h"
 
 class GameMouse : public UIObject
@@ -7,15 +8,6 @@ class GameMouse : public UIObject
 public:
 	GameMouse();
 	~GameMouse();
-
-	enum MouseButton
-	{
-		kLeftButton,
-		kMiddleButton,
-		kRightButton,
-
-		kNumButtons
-	};
 
 	void Update(DX::StepTimer const& timer);
 
@@ -29,7 +21,7 @@ public:
 
 	/// \brief Utility function for finding the mouse button state - whether it was clicked
 	/// \param Pass in the appropriate button to find whether it was pressed and released (clicked) or not
-	bool IsClicked(MouseButton mouseButton) { return m_mouseClickStates[mouseButton]; }
+	bool IsClicked(MouseButton mouseButton) { return m_mouseClickStates[static_cast<unsigned int>(mouseButton)]; }
 
 	bool IsPressed(MouseButton mouseButton);
 
@@ -43,7 +35,7 @@ private:
 	Mouse::State m_currentMouseState;
 
 	// Array for holding mouse button click state
-	bool m_mouseClickStates[MouseButton::kNumButtons];
+	bool m_mouseClickStates[static_cast<unsigned int>(MouseButton::kNumButtons)];
 
 	// Helper class for tracking mouse button clicks
 	std::unique_ptr<Mouse::ButtonStateTracker> m_mouseButtonState;

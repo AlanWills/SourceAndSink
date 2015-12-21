@@ -20,18 +20,18 @@ public:
 
   const bool IsOccupied() const { return m_storedObject != nullptr; }
 
-  void SetStoredObject(const BaseObject* storedObject) { m_storedObject = storedObject; }
+  void SetStoredObject(BaseObject* storedObject) { m_storedObject = storedObject; }
   const BaseObject* GetStoredObject() const { return m_storedObject; }
 
   template <typename T>
-  const T* GetStoredObjectAs() const { return dynamic_cast<const T*>(m_storedObject); }
+  T* GetStoredObjectAs() const { return dynamic_cast<T*>(m_storedObject); }
 
   void SetNeighbour(Tile* tile, const Neighbours neighbour) { m_neighbours[neighbour] = tile; }
   const Tile* GetNeighbour(const Neighbours neighbour) const { return m_neighbours[neighbour]; }
 
 private:
   /// \brief A variable for an object that can be stored on a tile - just a reference
-  const BaseObject* m_storedObject;
+  BaseObject* m_storedObject;
 
   /// \brief A pair of ints to indicate it's position in a tilemap
   const std::pair<int, int> m_tilemapCoords;

@@ -105,7 +105,7 @@ void GameplayScreen::HandleInput(DX::StepTimer const& timer)
 		m_backgroundTilemap->HandleInput(timer, gameMouse.GetInGamePosition());
 
     // Check that we have clicked the mouse and clicked on the tilemap
-    if (gameMouse.IsClicked(GameMouse::MouseButton::kLeftButton) && m_backgroundTilemap->IsClicked(gameMouse.GetInGamePosition()))
+    if (gameMouse.IsClicked(MouseButton::kLeftButton) && m_backgroundTilemap->IsClicked(gameMouse.GetInGamePosition()))
     {
       AddPipe<NormalPipe>(gameMouse.GetInGamePosition(), m_hud->GetSelectedPipeDataAsset());
     }

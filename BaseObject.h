@@ -3,6 +3,7 @@
 #include "Texture2D.h"
 #include "StepTimer.h"
 #include "Collider.h"
+#include "MouseButton.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -101,11 +102,25 @@ public:
 	const Vector2& GetSize() const { return m_size; }
 	void SetSize(const Vector2& size) { m_size = size; }
 
-	const bool IsSelected() const { return m_selected; }
-	void SetSelected(const bool selected) { m_selected = selected; }
+	const bool IsSelected(const MouseButton mouseButton = MouseButton::kLeftButton) const { return m_selected[static_cast<unsigned int>(mouseButton)]; }
+  void SetSelected(const bool selected, const MouseButton mouseButton)
+  {
+    assert(mouseButton < MouseButton::kNumButtons);
+    m_selected[static_cast<unsigned int>(mouseButton)] = selected;
+  }
 
-  const bool IsClicked() const { return m_clicked; }
-  void SetClicked(const bool clicked) { m_clicked = clicked; }
+  const bool IsClicked(const MouseButton mouseButton = MouseButton::kLeftButton) const { return m_clicked[static_cast<unsigned int>(mouseButton)]; }
+  void SetClicked(const bool clicked, const MouseButton mouseButton)
+  { 
+    assert(mouseButton < MouseButton::kNumButtons);
+    m_clicked[static_cast<unsigned int>(mouseButton)] = clicked;
+  }
+
+  /// \brief Function to set all clicked entries to false
+  void FlushClickArray();
+
+  /// \brief Function to set all selected entries to false
+  void FlushSelectArray();
 
 	void SetColour(const Color& colour) { m_colour = colour; }
 
@@ -160,8 +175,8 @@ private:
 	// And whether it is selected
   // And whether it has just been clicked - will only last one loop from when it was selected
 	bool m_mouseOver;
-	bool m_selected;
-  bool m_clicked;
+	bool m_selected[static_cast<unsigned int>(MouseButton::kNumButtons)];
+  bool m_clicked[static_cast<unsigned int>(MouseButton::kNumButtons)];
 
 	// Collider
 	std::unique_ptr<Collider> m_collider;

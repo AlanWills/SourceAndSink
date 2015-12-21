@@ -51,7 +51,7 @@ void SinkPipe::UpdatePipeStatus()
     }
 
     // If the neighbour tile has a pipe which is full we need to check whether the pipes match up.  If not, we return
-    if (GetPipeInfo().m_pipeInfoArray[neighbour] == false || !neighbourPipe->GetPipeInfo().CheckMatch(static_cast<PipeInfo::PipeDirection>(neighbour)))
+    if (!neighbourPipe->GetPipeInfo().CheckMatch(static_cast<PipeInfo::PipeDirection>(neighbour)))
     {
       // We are not connected to a full pipe so we return
       SetPipeStatus(PipeStatus::kEmpty);

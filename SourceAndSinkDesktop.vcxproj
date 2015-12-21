@@ -176,6 +176,7 @@
     <ClInclude Include="MainMenuScreen.h" />
     <ClInclude Include="MathUtils.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MouseButton.h" />
     <ClInclude Include="NormalPipe.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Pipe.h" />

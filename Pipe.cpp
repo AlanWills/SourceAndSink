@@ -63,10 +63,19 @@ void Pipe::HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition)
 {
   GameObject::HandleInput(timer, mousePosition);
 
-  if (AcceptsInput() && IsClicked())
+  if (AcceptsInput())
   {
-    // If the pipe is clicked on, we need to rotate it
-    Rotate();
+    if (IsClicked(MouseButton::kLeftButton))
+    {
+      // If the pipe is left clicked on, we need to rotate it
+      Rotate();
+    }
+
+    if (IsClicked(MouseButton::kRightButton))
+    {
+      // If the pipe is right clicked on, we are going to remove it from the tilemap so we should kill it and it will get cleaned up automatically
+      Die();
+    }
   }
 }
 
