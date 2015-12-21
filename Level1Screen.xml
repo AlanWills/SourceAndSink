@@ -6,6 +6,7 @@
   <AvailablePipes>
     <StraightPipe.xml>1</StraightPipe.xml>
     <QuadPipe.xml>1</QuadPipe.xml>
+    <CornerPipe.xml>1</CornerPipe.xml>
     <TPipe.xml>1</TPipe.xml>
   </AvailablePipes>
   <Sinks>
