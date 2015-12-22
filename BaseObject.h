@@ -131,6 +131,9 @@ public:
 
   const std::string& GetDataAsset() const { return m_dataAsset; }
 
+  /// \brief Set the on death function for this object
+  void SetOnDeathFunction(const std::function<void()>& onDeathFunction) { m_onDeathFunction = onDeathFunction; }
+
 protected:
 
 	/// \brief Gets the texture handler - cannot be const because draw is non-const (for now)
@@ -183,5 +186,8 @@ private:
 
 	// Parent object pointer
 	BaseObject* m_parent;
+
+  /// \brief Callback function for when this object dies - allows custom behaviour when ths object dies
+  std::function<void()> m_onDeathFunction;
 };
 

@@ -18,6 +18,8 @@ public:
 	/// \brief This function is empty because labels should not be handling any input
 	void HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition) override { }
 
+  void SetText(const std::wstring& text) { m_text = text; }
+
 private:
 	// Text this label will represent
 	std::wstring m_text;

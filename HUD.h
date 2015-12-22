@@ -16,6 +16,9 @@ public:
   /// \brief Get the .xml filename for the pipe data asset
   const std::string& GetSelectedPipeDataAsset() const;
 
+  /// \brief Used to change the HUD UI for certain events like Add pipes etc.
+  void RebuildHUD();
+
 protected:
   void AddInitialUI() override;
 

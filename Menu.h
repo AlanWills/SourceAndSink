@@ -36,6 +36,10 @@ public:
 	/// \brief Wrapper functions for adding/removing in UI objects
 	void AddUIObject(UIObject* uiObject, bool load = false, bool initialize = false);
   UIObject* FindObject(const std::string& uiObjectName) const;
+
+  template <typename T>
+  T* FindObjectAs(const std::string& objectName) const { return dynamic_cast<T*>(FindObject(objectName)); }
+
   void RemoveUIObject(const std::string& uiObjectName);
 	void RemoveUIObject(UIObject* uiObject);
 

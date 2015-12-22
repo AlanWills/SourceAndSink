@@ -6,11 +6,6 @@
 #include "GameMouse.h"
 #include "KeyboardInput.h"
 
-#include "BaseObject.h"
-#include "GameObject.h"
-#include "UIObject.h"
-#include "ClickableImage.h"
-
 #include <DirectXCollision.h>
 #include <list>
 
@@ -18,6 +13,7 @@ using namespace std;
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+///// DO NOT USE UNIQUE_PTRS HERE - IT DOES NOT WORK BECAUSE THE DESTRUCTORS ARE NOT SPECIFIED
 template <typename T> class BaseObjectManager
 {
 public:
@@ -217,6 +213,10 @@ T* BaseObjectManager<T>::FindObject(const std::string& name)
 template <typename T>
 void BaseObjectManager<T>::RemoveObject(T* objectToRemove)
 {
-	objectToRemove->Die();
+  if (objectToRemove->IsAlive())
+  {
+    objectToRemove->Die();
+  }
+
 	m_objectsToDelete.push_back(objectToRemove);
 }

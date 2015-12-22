@@ -36,6 +36,8 @@ void GameplayScreen::LoadContent()
   m_backgroundTilemap.reset(new Tilemap(GetDevice(), m_gameplayScreenData->GetTilemapAsset()));
   m_backgroundTilemap->LoadContent();
 
+  m_gameplayScreenData->GetAvailablePipesForLevel(m_availablePipes);
+
   m_hud = new HUD(this);
   AddScreenUIObject(m_hud, true, false);
 }
@@ -51,9 +53,10 @@ void GameplayScreen::Initialize()
   std::unordered_map<std::string, std::pair<int, int>> m_sources;
   m_gameplayScreenData->GetSourcesForLevel(m_sources);
 
-  for (std::pair<std::string, std::pair<int, int>> sourceInfo : m_sources)
+  for (std::pair<const std::string&, const std::pair<int, int>&> sourceInfo : m_sources)
   {
     Vector2 position = m_backgroundTilemap->GetWorldSpacePositionFromCoords(sourceInfo.second.first, sourceInfo.second.second);
+    m_availablePipes.at(sourceInfo.first) += 1;
     AddPipe<SourcePipe>(position, sourceInfo.first);
   }
 
@@ -61,9 +64,10 @@ void GameplayScreen::Initialize()
   m_sources.clear();
   m_gameplayScreenData->GetSinksForLevel(m_sources);
 
-  for (std::pair<std::string, std::pair<int, int>> sinkInfo : m_sources)
+  for (const std::pair<const std::string&, const std::pair<int, int>&>& sinkInfo : m_sources)
   {
     Vector2 position = m_backgroundTilemap->GetWorldSpacePositionFromCoords(sinkInfo.second.first, sinkInfo.second.second);
+    m_availablePipes.at(sinkInfo.first) += 1;
     AddPipe<SinkPipe>(position, sinkInfo.first);
   }
 }
@@ -107,7 +111,11 @@ void GameplayScreen::HandleInput(DX::StepTimer const& timer)
     // Check that we have clicked the mouse and clicked on the tilemap
     if (gameMouse.IsClicked(MouseButton::kLeftButton) && m_backgroundTilemap->IsClicked(gameMouse.GetInGamePosition()))
     {
-      AddPipe<NormalPipe>(gameMouse.GetInGamePosition(), m_hud->GetSelectedPipeDataAsset());
+      // See if we have any more pipes of the selected one available
+      if (m_availablePipes.at(m_hud->GetSelectedPipeDataAsset()) > 0)
+      {
+        AddPipe<NormalPipe>(gameMouse.GetInGamePosition(), m_hud->GetSelectedPipeDataAsset());
+      }
     }
 	}
 }

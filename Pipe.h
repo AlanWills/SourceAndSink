@@ -82,13 +82,13 @@ public:
   void Update(DX::StepTimer const& timer) override;
 
   const PipeStatus GetPipeStatus() const { return m_pipeStatus; }
-  const PipeInfo ConstGetPipeInfo() const { return m_pipeInfo; }
-  PipeInfo GetPipeInfo() { return m_pipeInfo; }
+  const PipeInfo& ConstGetPipeInfo() const { return m_pipeInfo; }
+  PipeInfo& GetPipeInfo() { return m_pipeInfo; }
 
 protected:
   Texture2D* GetTexture() const override;
 
-  void SetPipeStatus(const PipeStatus pipeStatus) { m_pipeStatus = pipeStatus; }
+  void SetPipeStatus(const PipeStatus& pipeStatus) { m_pipeStatus = pipeStatus; }
 
 private:
   /// \brief Update pipe status using neighbours

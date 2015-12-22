@@ -39,7 +39,8 @@ m_visible(false),
 m_acceptsInput(false),
 m_alive(false),
 m_colour(Color(1, 1, 1, 1)),
-m_opacity(1.0f)
+m_opacity(1.0f),
+m_onDeathFunction(nullptr)
 {
   // Initialise the click and select arrays
   FlushClickArray();
@@ -201,6 +202,11 @@ void BaseObject::Create()
 //-----------------------------------------------------------------------------------------------------------------------------------
 void BaseObject::Die()
 {
+  if (m_onDeathFunction != nullptr)
+  {
+    m_onDeathFunction();
+  }
+
 	m_alive = false;
 
 	Hide();
