@@ -8,7 +8,9 @@ public:
   SinkPipe(const std::string& dataAsset, Tile* parentTile);
   ~SinkPipe();
 
-private:
-  void UpdatePipeStatus() override;
+  void FillNeighbours() override;
+
+  /// \brief Checks to see whether all the neighbours are full and updates the texture if so
+  bool CheckFullyConnected();
 };
 

@@ -81,6 +81,39 @@ void GameplayScreen::Update(DX::StepTimer const& timer)
 	if (IsActive())
 	{
 		m_backgroundTilemap->Update(timer);
+
+    // Reset all the pipe statuses before iterating through and filling them
+    std::list<Pipe*> pipes;
+    FindPipes<Pipe>(pipes);
+
+    for (Pipe* pipe : pipes)
+    {
+      pipe->ResetPipeStatus();
+    }
+
+    // We have to start from the source pipes otherwise we will have non-deterministic filling behaviour
+    std::list<SourcePipe*> sourcePipes;
+    FindPipes<SourcePipe>(sourcePipes);
+
+    for (SourcePipe* sourcePipe : sourcePipes)
+    {
+      sourcePipe->FillNeighbours();
+    }
+
+    // Check all the sinks are full - if so, we are done
+    bool allSinksFullyConnected = true;
+
+    std::list<SinkPipe*> sinkPipes;
+    FindPipes<SinkPipe>(sinkPipes);
+
+    for (SinkPipe* sinkPipe : sinkPipes)
+    {
+      if (!sinkPipe->CheckFullyConnected())
+      {
+        // We have found a sink which is not fully connected and so we finish
+        allSinksFullyConnected = false;
+      }
+    }
 	}
 }
 

@@ -58,6 +58,8 @@ public:
 	void AddGameObject(GameObject* gameObject, bool load = false, bool initialize = false);
 	void RemoveGameObject(GameObject* gameObject);
 
+  const std::list<GameObject*>& GetGameObjects() const { return m_gameObjects->GetObjects(); }
+
 	/// \brief Wrapper functions for adding/removing in game UI objects
 	void AddInGameUIObject(UIObject* inGameUIObject, bool load = false, bool initialize = false);
 	void RemoveInGameUIObject(UIObject* inGameUIObject);
@@ -68,7 +70,7 @@ public:
 
   ID3D11Device* GetDevice() const { return m_device.Get(); }
 
-  const Vector2& GetScreenDimensions() const;
+  const Vector2 GetScreenDimensions() const;
   const Vector2& GetScreenCentre() const;
 
 protected:

@@ -173,7 +173,7 @@ const Vector2& BaseScreen::GetScreenCentre() const
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-const Vector2& BaseScreen::GetScreenDimensions() const
+const Vector2 BaseScreen::GetScreenDimensions() const
 {
   return ScreenManager::GetScreenDimensions();
 }

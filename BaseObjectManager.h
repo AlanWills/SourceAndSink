@@ -47,6 +47,10 @@ public:
   /// \brief Gets all objects
   const std::list<T*>& GetObjects() const { return m_activeObjects; }
 
+  /// \brief Gets all the objects of the inputted type
+  /*template <typename T, typename K>
+  void FindObjects(std::list<K*>& objects);*/
+
 	/// \brief Calls Show() on each active object
 	void ShowAll()
 	{
@@ -207,6 +211,22 @@ T* BaseObjectManager<T>::FindObject(const std::string& name)
 
   return nullptr;
 }
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+/*template <typename T, typename K>
+void BaseObjectManager<T>::FindObjects(std::list<K*>& objects)
+{
+  objects.clear();
+
+  for (T* object : m_activeObjects)
+  {
+    if (dynamic_cast<K*>(object))
+    {
+      objects.pushback(dynamic_cast<K*>(object));
+    }
+  }
+}*/
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------

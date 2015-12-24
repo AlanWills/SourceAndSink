@@ -79,27 +79,35 @@ public:
   ~Pipe();
 
   void LoadContent(ID3D11Device* device) override;
-  void Update(DX::StepTimer const& timer) override;
 
   const PipeStatus GetPipeStatus() const { return m_pipeStatus; }
   const PipeInfo& ConstGetPipeInfo() const { return m_pipeInfo; }
   PipeInfo& GetPipeInfo() { return m_pipeInfo; }
 
+  /// \brief Reset pipe status to kEmpty and sets filled flag to false
+  virtual void ResetPipeStatus();
+
+  /// \brief Fill all matching neighbours with water if this pipe is full and the neighbours exist
+  virtual void FillNeighbours() = 0;
+
+  void SetPipeStatus(const PipeStatus& pipeStatus) { m_pipeStatus = pipeStatus; }
+  bool DoneFilling() const { return m_doneFilling; }
+
 protected:
   Texture2D* GetTexture() const override;
 
-  void SetPipeStatus(const PipeStatus& pipeStatus) { m_pipeStatus = pipeStatus; }
+  void SetDoneFilling(const bool doneFilling) { m_doneFilling = doneFilling; }
 
 private:
-  /// \brief Update pipe status using neighbours
-  virtual void UpdatePipeStatus() = 0;
-
   PipeInfo m_pipeInfo;
 
   std::unique_ptr<PipeData> m_pipeData;
 
   /// \brief Current status of the pipe
   PipeStatus m_pipeStatus;
+
+  /// \brief A flag to indicate whether this tile has already been through the fill neighbour iteration this update loop - get's reset in reset pipe status
+  bool m_doneFilling;
 
   /// \brief Texture handlers to represent the full pipe texture
   std::unique_ptr<Texture2D> m_fullTexture;

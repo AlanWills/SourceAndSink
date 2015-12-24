@@ -10,9 +10,9 @@ public:
 
   void HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition) override;
 
-private:
-  void UpdatePipeStatus() override;
+  void FillNeighbours() override;
 
+private:
   /// \brief Changes pipe's rotation but also the info array
   void Rotate();
 };

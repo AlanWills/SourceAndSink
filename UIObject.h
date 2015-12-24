@@ -24,4 +24,3 @@ private:
 
   void* m_storedObject;
 };
-

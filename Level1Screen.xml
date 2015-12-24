@@ -4,10 +4,10 @@
   <BackgroundTextureAsset>EmptyBackground.png</BackgroundTextureAsset>
   <TilemapAsset>Level1Tilemap.xml</TilemapAsset>
   <AvailablePipes>
-    <StraightPipe.xml>1</StraightPipe.xml>
-    <QuadPipe.xml>1</QuadPipe.xml>
-    <CornerPipe.xml>1</CornerPipe.xml>
-    <TPipe.xml>1</TPipe.xml>
+    <StraightPipe.xml>5</StraightPipe.xml>
+    <QuadPipe.xml>5</QuadPipe.xml>
+    <CornerPipe.xml>5</CornerPipe.xml>
+    <TPipe.xml>5</TPipe.xml>
   </AvailablePipes>
   <Sinks>
     <StraightPipe x="1" y="3">StraightPipe.xml</StraightPipe>

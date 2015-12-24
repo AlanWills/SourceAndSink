@@ -45,11 +45,11 @@ public:
 	virtual void HandleInput(DX::StepTimer const& timer, const Vector2& mousePosition);
 
 	/// \brief Returns a pointer to the parent of this object
-	BaseObject* GetParent() { return m_parent; }
+	BaseObject* GetParent() const { return m_parent; }
 
 	/// \brief Returns a pointer to the parent of this object as an inputted type
 	template <typename T>
-	T* GetParentAs() { return dynamic_cast<T*>(m_parent); }
+	T* GetParentAs() const { return dynamic_cast<T*>(m_parent); }
 
 	/// \brief State Utility Functions
 	bool IsActive() { return m_active; }

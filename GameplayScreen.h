@@ -28,6 +28,9 @@ private:
   template <typename T>
   void AddPipe(const Vector2& location, const std::string& dataAsset);
 
+  template <typename T>
+  void FindPipes(std::list<T*>& pipes) const;
+
 	std::unique_ptr<Tilemap> m_backgroundTilemap;
   std::unique_ptr<GameplayScreenData> m_gameplayScreenData;
 
@@ -67,5 +70,19 @@ void GameplayScreen::AddPipe(const Vector2& location, const std::string& dataAss
 
     // Rebuild the HUD
     m_hud->RebuildHUD();
+  }
+}
+
+template <typename T>
+void GameplayScreen::FindPipes(std::list<T*>& pipes) const
+{
+  pipes.clear();
+
+  for (GameObject* gameObject : GetGameObjects())
+  {
+    if (dynamic_cast<T*>(gameObject))
+    {
+      pipes.push_back(dynamic_cast<T*>(gameObject));
+    }
   }
 }

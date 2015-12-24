@@ -8,8 +8,9 @@ public:
   SourcePipe(const std::string& dataAsset, Tile* parentTile);
   ~SourcePipe();
 
-private:
   /// \brief The source will always be full
-  void UpdatePipeStatus() override { }
+  void ResetPipeStatus() override;
+
+  void FillNeighbours() override;
 };
 

@@ -11,6 +11,7 @@ Pipe::Pipe(const std::string& dataAsset, Tile* parent, PipeStatus initialPipeSta
   GameObject(dataAsset, LoadType::kData, parent),
   m_pipeData(new PipeData(dataAsset)),
   m_pipeStatus(initialPipeStatus),
+  m_doneFilling(false),
   m_fullTexture(new Texture2D())
 {
 }
@@ -46,15 +47,10 @@ void Pipe::LoadContent(ID3D11Device* device)
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-void Pipe::Update(DX::StepTimer const& timer)
+void Pipe::ResetPipeStatus()
 {
-  GameObject::Update(timer);
-
-  if (IsActive())
-  {
-    // Update pipe status
-    UpdatePipeStatus();
-  }
+  m_pipeStatus = kEmpty;
+  m_doneFilling = false;
 }
 
 
